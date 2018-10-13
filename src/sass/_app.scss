@@ -1,0 +1,75 @@
+.letters{
+    color: $color-back;
+    font-size: 2rem;
+}
+
+.vesalo {
+
+    &-container {
+        position: relative;
+        border: 1px solid $color-back;
+   
+         height: 50vh;
+   }
+
+    &-glava{
+        position: absolute;
+        left: 51%;
+        top: 10px;
+        background-color: $color-back;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        color: $color-primary;
+    }   
+    &-torzo{ 
+        position: absolute;
+        left: 47%;
+        top: 12%;
+        background-color: $color-back;
+        width: 100px;
+        height: 150px;
+        border-radius: 10%;
+        color: $color-primary;
+    } 
+    &-Lruka{
+        position: absolute;
+        left: 45%;
+        top: 14%;
+        background-color: $color-back;
+        width: 10px;
+        height: 170px;
+        border-radius: 10%;
+        color: $color-primary;
+    } 
+    &-Druka{
+        position: absolute;
+        left: 61%;
+        top: 14%;
+        background-color: $color-back;
+        width: 10px;
+        height: 170px;
+        border-radius: 10%;
+        color: $color-primary;
+    } 
+    &-Lnoga{
+        position: absolute;
+        left: 50%;
+        top: 46%;
+        background-color: $color-back;
+        width: 20px;
+        height: 180px;
+        border-radius: 10%;
+        color: $color-primary;
+    } 
+    &-Dnoga{
+        position: absolute;
+        left: 56%;
+        top: 46%;
+        background-color: $color-back;
+        width: 20px;
+        height: 180px;
+        border-radius: 10%;
+        color: $color-primary;
+    } 
+}

@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: #420c34; }
+
+/* 
+////////////////PRE SET/////////////////////////// */
+.btnmoj {
+  background-color: #720D5D;
+  color: #f2f2f2;
+  font-size: 1.7rem;
+  border: none;
+  width: 20%;
+  padding: 10px; }
+
+.letters {
+  color: #f2f2f2;
+  font-size: 2rem; }
+
+.vesalo-container {
+  position: relative;
+  border: 1px solid #f2f2f2;
+  height: 50vh; }
+
+.vesalo-glava {
+  position: absolute;
+  left: 51%;
+  top: 10px;
+  background-color: #f2f2f2;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  color: #420c34; }
+
+.vesalo-torzo {
+  position: absolute;
+  left: 47%;
+  top: 12%;
+  background-color: #f2f2f2;
+  width: 100px;
+  height: 150px;
+  border-radius: 10%;
+  color: #420c34; }
+
+.vesalo-Lruka {
+  position: absolute;
+  left: 45%;
+  top: 14%;
+  background-color: #f2f2f2;
+  width: 10px;
+  height: 170px;
+  border-radius: 10%;
+  color: #420c34; }
+
+.vesalo-Druka {
+  position: absolute;
+  left: 61%;
+  top: 14%;
+  background-color: #f2f2f2;
+  width: 10px;
+  height: 170px;
+  border-radius: 10%;
+  color: #420c34; }
+
+.vesalo-Lnoga {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  background-color: #f2f2f2;
+  width: 20px;
+  height: 180px;
+  border-radius: 10%;
+  color: #420c34; }
+
+.vesalo-Dnoga {
+  position: absolute;
+  left: 56%;
+  top: 46%;
+  background-color: #f2f2f2;
+  width: 20px;
+  height: 180px;
+  border-radius: 10%;
+  color: #420c34; }

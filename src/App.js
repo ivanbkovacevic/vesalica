@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import Crtica from './Crtica'
+import './css/vesalica.css';
+import Crtica from './Crtica';
+import Vesalo from './Vesalo';
+import { Grid, Col, Row,Button } from 'react-bootstrap';
 class App extends Component {
 
 state={
@@ -92,34 +94,45 @@ newGame=()=>{
    let guessedLett=null;
    
      guessedLett = this.state.atmLettArr.map((gl,i)=>{
-      return <span>{gl}</span>
+      return <span> {gl} ,</span>
     })
 
     correct=correctLettArr.map((l,i)=>{
       return <span>{l}</span>
     })
 
-
     return (
-      <div className="App">
-      <button onClick={this.generateWord}>izaberi rec</button>
-      <button onClick={this.showWord}>prikazi rec</button>
-      <button onClick={this.newGame}>nova igra</button>
-      <br/>
-      {this.state.showWord ? <div>{this.state.zagRec}</div> : null} 
-
-      {correct}
-      <br/>
-      <form onSubmit={this.GuessingLetter}>
+      <Grid >
+        <Row>
+        <div>
+          <button className="btnmoj" onClick={this.generateWord}>izaberi rec</button>
+          <button className="btnmoj" onClick={this.showWord}>prikazi rec</button>
+          <button className="btnmoj" onClick={this.newGame}>nova igra</button>
+          
+        </div>
+        </Row>
+        <Row>
+          {this.state.showWord ? <div className="letters">{this.state.zagRec}</div> : null} 
+          <span className="letters">{correct}</span>
+        </Row>
+    <Row>
+    <form onSubmit={this.GuessingLetter}>
       <input type='text' placeholder='pogodi slovo' ref="letter" ></input>
-      <button type='submit'>Da li ima ovog slova?</button>
+      <button className="btnmoj" type='submit'>Da li ima ovog slova?</button>
       </form>
-     
-       Pokušana slova: {guessedLett}
+    </Row>
+    <Row>
+      <span className="letters">Pokušana slova:  {guessedLett}</span>
        <br/>
-    
-       {this.state.message}
-      </div>
+    </Row>
+    <Row>
+    <span className="letters">{this.state.message}</span>
+    </Row>
+    <Row>
+      <Vesalo />
+    </Row>
+
+      </Grid>
     );
   }
 }
