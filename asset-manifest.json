@@ -1,13 +1,13 @@
 {
   "main.css": "/vesalica/static/css/main.d00d3b04.chunk.css",
-  "main.js": "/vesalica/static/js/main.f2090dca.chunk.js",
-  "main.js.map": "/vesalica/static/js/main.f2090dca.chunk.js.map",
+  "main.js": "/vesalica/static/js/main.467c1e06.chunk.js",
+  "main.js.map": "/vesalica/static/js/main.467c1e06.chunk.js.map",
   "static/js/1.82845b06.chunk.js": "/vesalica/static/js/1.82845b06.chunk.js",
   "static/js/1.82845b06.chunk.js.map": "/vesalica/static/js/1.82845b06.chunk.js.map",
   "runtime~main.js": "/vesalica/static/js/runtime~main.61eb54e5.js",
   "runtime~main.js.map": "/vesalica/static/js/runtime~main.61eb54e5.js.map",
   "static/css/main.d00d3b04.chunk.css.map": "/vesalica/static/css/main.d00d3b04.chunk.css.map",
   "index.html": "/vesalica/index.html",
-  "precache-manifest.4edb0c4eb787aaaedc7e1b7cf32676ac.js": "/vesalica/precache-manifest.4edb0c4eb787aaaedc7e1b7cf32676ac.js",
+  "precache-manifest.2a3c0941aa9598369d9e8774b53bbfbd.js": "/vesalica/precache-manifest.2a3c0941aa9598369d9e8774b53bbfbd.js",
   "service-worker.js": "/vesalica/service-worker.js"
 }
