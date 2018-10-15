@@ -30,6 +30,7 @@
     text-align: center;
     height: 35px;
     margin-bottom: 5%;
+    margin-top: 5%;
     border: 1px solid wheat;
 
     &-win{
@@ -38,6 +39,7 @@
         text-align: center;
         background-color: $color-win;
         margin-bottom: 5%;
+        margin-top: 5%;
     }
 
     &-loss{
@@ -46,6 +48,7 @@
           text-align: center;  
           background-color: $color-loss;
           margin-bottom: 5%;
+          margin-top: 5%;
     }
 }
 

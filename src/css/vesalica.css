@@ -27,6 +27,23 @@ body {
   width: 80%;
   padding: 5px;
   margin-left: 10px; }
+  .btnmoj-slova {
+    background-color: #720D5D;
+    color: #f2f2f2;
+    font-size: 1.3rem;
+    border: 1px solid #420c34;
+    width: 8%;
+    padding: 5px; }
+  .btnmoj-slova:hover {
+    background-color: #a5218b; }
+  .btnmoj-slova-used {
+    background-color: #a5218b;
+    color: #420c34;
+    font-weight: 500;
+    font-size: 1.3rem;
+    border: 1px solid #420c34;
+    width: 8%;
+    padding: 5px; }
 
 .zag-rec-container {
   height: 100px;
@@ -53,19 +70,22 @@ body {
   text-align: center;
   height: 35px;
   margin-bottom: 5%;
+  margin-top: 5%;
   border: 1px solid wheat; }
   .message-win {
     color: #f2f2f2;
     font-size: 2rem;
     text-align: center;
     background-color: #239623;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    margin-top: 5%; }
   .message-loss {
     color: #f2f2f2;
     font-size: 2rem;
     text-align: center;
     background-color: #E30425;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    margin-top: 5%; }
 
 .wraper-ceo {
   height: 60%;
