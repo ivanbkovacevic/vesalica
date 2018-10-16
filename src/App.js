@@ -99,7 +99,7 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
   
 }
 
-GuessingLetter=(s,i)=>{ // igrac pogadja rec...u input upisuje slova i submituje ih  
+GuessingLetter=(s,i)=>{ // igrac pogadja rec...
   let {letterG,zagRecArr,zagRecArrChecking,message,correctLettArr,bingo,zagRecLength,showWord,notMatch,missed,status,azbuka}=this.state;
   azbuka=azbuka.slice();
   zagRecArr=zagRecArr.slice();
@@ -199,6 +199,10 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...u input upisuje slova i submituje
     </Row>
     <Row>
       <Vesalo missed={this.state.missed}/>
+      <form>
+      <input type='text' pattern='[a-z]{3}'></input>
+      </form>
+     
     </Row>
 
       </Grid>
