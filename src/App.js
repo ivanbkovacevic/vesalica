@@ -1,14 +1,16 @@
-//npm install gh-pages --save-dev
+//npm install gh-pages 
 //"homepage":"https://ivanbkovacevic.github.io/vesalica", -ovo u jsonu
 //"deploy":"npm run build&&gh-pages -d build",
 //npm run deploy
 import React, { Component } from 'react';
 import './css/vesalica.css';
-import Crtica from './Crtica';
+import axios from 'axios';
+import firebase from './firebase';
 import Vesalo from './Vesalo';
 import LettersToBeGuessed from './LettersToBeGuessed';
 import { Grid, Col, Row,Button } from 'react-bootstrap';
 class App extends Component {
+
 
 state={
   gameStarted:false,
@@ -37,7 +39,40 @@ state={
   message:'',
   btnMsg:'START',
   status:'',
+  fbArr:[],
+  saAPIa:[]
 }
+
+componentDidMount(){
+  let {saAPIa}=this.state;
+  
+  // axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/proba.json',proba)
+  // .then(response=>console.log(response))
+  // .catch(error=>console.log(error));
+
+  axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
+  .then(response=>{
+    this.setState({saAPIa:response.data});
+  })
+
+  // let {fbArr}=this.state;
+  //   let gradRef= firebase.database().ref('gradovi_srbije');
+  //     gradRef.on('value',(snapshot)=>{
+  //    let gradovi=snapshot.val();
+
+  //  //console.log(gradovi);
+
+  //    for(let grad in gradovi){
+  //      fbArr.push(
+  //       gradovi[grad].država)
+  //     }
+  //   });
+
+  //   this.setState({fbArr});
+
+}
+
+
 
 generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
   let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gradoviSrbije,gameStarted,btnMsg}=this.state;
@@ -152,7 +187,17 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
     this.setState({letterG})
 }
+upisiGradUBazu=(e)=>{
+  e.preventDefault() ;
+   let imeGrada=this.refs.grad.value;
+   let grad={ime:imeGrada}
 
+    axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json',grad)
+  .then(response=>console.log(response))
+  .catch(error=>console.log(error));
+
+console.log(imeGrada)
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////
   render() {
@@ -199,8 +244,10 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     </Row>
     <Row>
       <Vesalo missed={this.state.missed}/>
-      <form>
-      <input type='text' pattern='[a-z]{3}'></input>
+
+      <form onSubmit={this.upisiGradUBazu}>
+        <input type="text" ref='grad' />
+        <button type='submit'>upisi grad</button>
       </form>
      
     </Row>
