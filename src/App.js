@@ -165,6 +165,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...u input upisuje slova i submituje
       return <span className='crtice'>{l}</span>
     })
 
+    
     abc=(
       this.state.azbuka.map((slo,i)=>{
       return (<LettersToBeGuessed isUsed={slo.clicked} value={slo.value} clicked={()=>this.GuessingLetter(slo.value,i)}/>
@@ -186,7 +187,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...u input upisuje slova i submituje
         </Row>
     <Row>
     <Col xs={12}> 
-    <div>{abc}</div>
+    { this.state.gameStarted ? <div>{abc}</div> : null }
     </Col>
      
     </Row>
