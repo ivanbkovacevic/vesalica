@@ -39,40 +39,10 @@ state={
   message:'',
   btnMsg:'START',
   status:'',
-  fbArr:[],
-  saAPIa:[]
-}
-
-componentDidMount(){
-  let {saAPIa}=this.state;
+  gradoviFirebase:[],
+  dataReady:false
   
-  // axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/proba.json',proba)
-  // .then(response=>console.log(response))
-  // .catch(error=>console.log(error));
-
-  axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
-  .then(response=>{
-    this.setState({saAPIa:response.data});
-  })
-
-  // let {fbArr}=this.state;
-  //   let gradRef= firebase.database().ref('gradovi_srbije');
-  //     gradRef.on('value',(snapshot)=>{
-  //    let gradovi=snapshot.val();
-
-  //  //console.log(gradovi);
-
-  //    for(let grad in gradovi){
-  //      fbArr.push(
-  //       gradovi[grad].država)
-  //     }
-  //   });
-
-  //   this.setState({fbArr});
-
 }
-
-
 
 generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
   let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gradoviSrbije,gameStarted,btnMsg}=this.state;
@@ -120,6 +90,7 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
       message:'',
       btnMsg:'NOVA REC',
       status:'',
+      
     
       azbuka:[{id:0,value:"A",clicked:false},{id:1,value:"Б",clicked:false},{id:2,value:"В",clicked:false},{id:3,value:"Г",clicked:false},
       {id:4,value:"Д",clicked:false},{id:5,value:"Е",clicked:false},{id:6,value:"Ђ",clicked:false},{id:7,value:"Ж",clicked:false},
@@ -187,16 +158,32 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
     this.setState({letterG})
 }
+
 upisiGradUBazu=(e)=>{
   e.preventDefault() ;
    let imeGrada=this.refs.grad.value;
    let grad={ime:imeGrada}
-
+   e.target.reset();
     axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json',grad)
   .then(response=>console.log(response))
   .catch(error=>console.log(error));
-
 console.log(imeGrada)
+
+}
+
+uzmiGradIzBaze=()=>{
+  let {gradoviFirebase}=this.state;
+  gradoviFirebase=gradoviFirebase.slice();
+  gradoviFirebase=[];
+  axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
+  .then(response=>{
+    for(let i in response.data){
+      gradoviFirebase.push(response.data[i].ime)
+    }
+      console.log(gradoviFirebase)
+    this.setState({gradoviFirebase,dataReady:true});
+  
+  })
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,6 +192,7 @@ console.log(imeGrada)
   
    let correct=null;
    let abc=null;
+   let fire=null;
    
     correct=correctLettArr.map((l,i)=>{
       return <span className='crtice'>{l}</span>
@@ -217,6 +205,15 @@ console.log(imeGrada)
         )
     })
   )
+
+   if(this.state.dataReady){
+    fire=this.state.gradoviFirebase.map((gr,i)=>{
+      return <p key={i}>{gr}</p>
+    })
+    
+   }
+  
+
     return (
       <Grid >
         <Row>
@@ -249,6 +246,8 @@ console.log(imeGrada)
         <input type="text" ref='grad' />
         <button type='submit'>upisi grad</button>
       </form>
+      <button type='text' onClick={this.uzmiGradIzBaze}>uzmi gradove</button>
+     {fire}
      
     </Row>
 
