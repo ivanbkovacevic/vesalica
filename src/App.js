@@ -4,13 +4,11 @@
 //npm run deploy
 import React, { Component } from 'react';
 import './css/vesalica.css';
-import axios from 'axios';
-import firebase from './firebase';
+//import axios from 'axios';
 import Vesalo from './Vesalo';
 import LettersToBeGuessed from './LettersToBeGuessed';
 import { Grid, Col, Row,Button } from 'react-bootstrap';
 class App extends Component {
-
 
 state={
   gameStarted:false,
@@ -24,11 +22,12 @@ state={
   zagRecArr:[],
   zagRecArrChecking:[],
   correctLettArr:[],
-  azbuka:[{id:0,value:"A",clicked:false},{id:1,value:"Б",clicked:false},{id:2,value:"В",clicked:false},{id:3,value:"Г",clicked:false},
+  azbuka:[
+  {id:0,value:"A",clicked:false},{id:1,value:"b",clicked:false},{id:2,value:"В",clicked:false},{id:3,value:"Г",clicked:false},
   {id:4,value:"Д",clicked:false},{id:5,value:"Е",clicked:false},{id:6,value:"Ђ",clicked:false},{id:7,value:"Ж",clicked:false},
   {id:8,value:"З",clicked:false},{id:9,value:"И",clicked:false},{id:10,value:"Ј",clicked:false},{id:11,value:"К",clicked:false},
   {id:12,value:"Л",clicked:false},{id:13,value:"Љ",clicked:false},{id:14,value:"М",clicked:false},{id:15,value:"Н",clicked:false},
-  {id:16,value:"Њ",clicked:false},{id:17,value:"О",clicked:false},{id:18,value:"П",clicked:false},{id:19,value:"Р",clicked:false},
+  {id:16,value:"Њ",special:true, clicked:false},{id:17,value:"О",clicked:false},{id:18,value:"П",clicked:false},{id:19,value:"Р",clicked:false},
   {id:20,value:"С",clicked:false},{id:21,value:"Т",clicked:false},{id:22,value:"У",clicked:false},{id:23,value:"Ф",clicked:false},
   {id:24,value:"Х",clicked:false},{id:25,value:"Ц",clicked:false},{id:26,value:"Ћ",clicked:false},{id:27,value:"Ч",clicked:false},
   {id:28,value:"Џ",clicked:false},{id:29,value:"Ш",clicked:false}],
@@ -45,7 +44,7 @@ state={
 }
 
 generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
-  let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gradoviSrbije,gameStarted,btnMsg}=this.state;
+  let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gradoviSrbije,gameStarted,btnMsg,azbuka}=this.state;
  
   if(!gameStarted){
     gameStarted=!gameStarted;
@@ -54,16 +53,16 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     console.log(gradoviLength);
     console.log(gradoviSrbije);
     let zagIndex= Math.floor(Math.random() * gradoviLength) + 1;
-    zagRec=gradoviSrbije[zagIndex];
+    zagRec=gradoviSrbije[zagIndex]; //nasumično uzimamo gradove iz objekta
     console.log(zagRec);
-    zagRecLength= zagRec.length;//du\ina nam treba da bismo proveravali da li je doslo do pobede ili poraza kao i za crtanje
+    zagRecLength= zagRec.length;//dužina nam treba da bismo proveravali da li je doslo do pobede ili poraza kao i za crtanje
     console.log( zagRecLength);
     zagRec=zagRec.toUpperCase();
     zagRecArr=  Array.from(zagRec);// pravljenje array od reci jer treba manipulisati sa tim array
     zagRecArrChecking=[...zagRecArr];//array koji sluzi za proveru da li su sva slova pogodjena tj.  registruje da li su sva slova(i duplikati) upisani
    
     for(let c in zagRecArr){ // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu
-      if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prayno mesto
+      if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
        correctLettArr.push(' ');
        zagRecArrChecking.splice(c,1);
        zagRecLength--;
@@ -73,8 +72,11 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     }
     this.setState({zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gameStarted,btnMsg});
   }else{
-    console.log('statrtovano');
+    console.log('startovano');
     gameStarted=!gameStarted;
+    for(let i in azbuka){
+        azbuka[i].clicked=false;
+    }
     this.setState({
       zagRec:'',
       gameStarted,
@@ -88,18 +90,9 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
       letterG:'',
       atmLettArr:[],
       message:'',
-      btnMsg:'NOVA REC',
+      btnMsg:'NOVA REČ',
       status:'',
-      
-    
-      azbuka:[{id:0,value:"A",clicked:false},{id:1,value:"Б",clicked:false},{id:2,value:"В",clicked:false},{id:3,value:"Г",clicked:false},
-      {id:4,value:"Д",clicked:false},{id:5,value:"Е",clicked:false},{id:6,value:"Ђ",clicked:false},{id:7,value:"Ж",clicked:false},
-      {id:8,value:"З",clicked:false},{id:9,value:"И",clicked:false},{id:10,value:"Ј",clicked:false},{id:11,value:"К",clicked:false},
-      {id:12,value:"Л",clicked:false},{id:13,value:"Љ",clicked:false},{id:14,value:"М",clicked:false},{id:15,value:"Н",clicked:false},
-      {id:16,value:"Њ",clicked:false},{id:17,value:"О",clicked:false},{id:18,value:"П",clicked:false},{id:19,value:"Р",clicked:false},
-      {id:20,value:"С",clicked:false},{id:21,value:"Т",clicked:false},{id:22,value:"У",clicked:false},{id:23,value:"Ф",clicked:false},
-      {id:24,value:"Х",clicked:false},{id:25,value:"Ц",clicked:false},{id:26,value:"Ћ",clicked:false},{id:27,value:"Ч",clicked:false},
-      {id:28,value:"Џ",clicked:false},{id:29,value:"Ш",clicked:false}],
+       azbuka
     });
   }
   
@@ -112,15 +105,15 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
   zagRecArrChecking=zagRecArrChecking.slice();
   correctLettArr=correctLettArr.slice();//array koji hvata tacna slova  tj pogotke
  
-    letterG = s;//hvatanje slova iz arraya
+    letterG = s;// hvatanje slova iz arraya
     letterG=letterG.toUpperCase();
     azbuka[i].clicked=true;
     this.setState({azbuka});
     
     for(let w in zagRecArr ){ //prolazenje kroz arr reci i cekiranje da li se neki elemenat arr poklapa sa guessovanim slovom
       if(zagRecArr[w]===letterG){
-        correctLettArr[w]=letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mo\da je moglo da se nayove i displayedLettArr
-        message='Pogodili ste slovo';
+        correctLettArr[w]=letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mozda je moglo da se nazove i displayedLettArr
+        message='Погодили сте слово';
         this.setState({correctLettArr,message});
       } 
   }
@@ -133,24 +126,24 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     } 
 }
 
-  this.checkSlovo=(slovo)=>{ // funkcija koja vraca true ili false u zavisnsoti od uslova
+  this.checkSlovo=(slovo)=>{ // funkcija koja vraca true ili false u zavisnoSti od uslova
     return slovo !== letterG;
    }
 
    notMatch=zagRecArr.every(this.checkSlovo);//primenjivanje gornje funkcije na svaki elemenat u nizu
      if(notMatch){//ako je true dodavanje poena u missed  i ispisavanje poruke
-       message='Nema tog slova u reci !';
+       message='NEMA TOG SLOVA Č Ž !';
        missed++
        this.setState({message,missed})
      }
       if(bingo===zagRecLength){ //pronaslo se tacno resenje 
-        message='BRAVO! Nasli ste tacnu rec.';
+        message='Браво! Нашли сте тачну реч.';
         status='-win';
         this.setState({message,status})
       }
 
       if(missed===6 ){ //missed se dobija kada slovo nije matchovano
-        message='IZGUBILI STE PARTIJU';
+        message='ИЗГУБИЛИ СТЕ ПАРТИЈУ';
         status='-loss';
         showWord=true;
         this.setState({message,status,showWord})
@@ -159,37 +152,36 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     this.setState({letterG})
 }
 
-upisiGradUBazu=(e)=>{
-  e.preventDefault() ;
-   let imeGrada=this.refs.grad.value;
-   let grad={ime:imeGrada}
-   e.target.reset();
-    axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json',grad)
-  .then(response=>console.log(response))
-  .catch(error=>console.log(error));
-console.log(imeGrada)
+// upisiGradUBazu=(e)=>{
+//   e.preventDefault() ;
+//    let imeGrada=this.refs.grad.value;
+//    let grad={ime:imeGrada}
+//    e.target.reset();
+//     axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json',grad)
+//   .then(response=>console.log(response))
+//   .catch(error=>console.log(error));
+// console.log(imeGrada)
 
-}
+// }
 
-uzmiGradIzBaze=()=>{
-  let {gradoviFirebase}=this.state;
-  gradoviFirebase=gradoviFirebase.slice();
-  gradoviFirebase=[];
-  axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
-  .then(response=>{
-    for(let i in response.data){
-      gradoviFirebase.push(response.data[i].ime)
-    }
-      console.log(gradoviFirebase)
-    this.setState({gradoviFirebase,dataReady:true});
+// uzmiGradIzBaze=()=>{
+//   let {gradoviFirebase}=this.state;
+//   gradoviFirebase=gradoviFirebase.slice();
+//   gradoviFirebase=[];
+//   axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
+//   .then(response=>{
+//     for(let i in response.data){
+//       gradoviFirebase.push(response.data[i].ime)
+//     }
+//       console.log(gradoviFirebase)
+//     this.setState({gradoviFirebase,dataReady:true});
   
-  })
-}
+//   })
+// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
   render() {
     let {status,correctLettArr}=this.state;
-  
    let correct=null;
    let abc=null;
    let fire=null;
@@ -223,7 +215,7 @@ uzmiGradIzBaze=()=>{
 
         <Row>
           <div className='zag-rec-container'>
-              {this.state.showWord ? <div className="letters">Zagonetna reč je bila: {this.state.zagRec}</div> : null} 
+              {this.state.showWord ? <div className="letters">Загонетна реч је била: {this.state.zagRec}</div> : null} 
               <Col xs={12}><span className="letters-zagonetka">{correct}</span></Col>
           </div>
         </Row>
@@ -242,12 +234,12 @@ uzmiGradIzBaze=()=>{
     <Row>
       <Vesalo missed={this.state.missed}/>
 
-      <form onSubmit={this.upisiGradUBazu}>
+      {/* <form onSubmit={this.upisiGradUBazu}>
         <input type="text" ref='grad' />
         <button type='submit'>upisi grad</button>
       </form>
       <button type='text' onClick={this.uzmiGradIzBaze}>uzmi gradove</button>
-     {fire}
+     {fire} */}
      
     </Row>
 

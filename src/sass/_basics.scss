@@ -3,8 +3,11 @@
     //  "scripts": {
   //    "compile:sass":"node-sass ./src/sass/main.scss  ./src/css/connect_4.css -w",  
 
+  @font-face {
+    font-family: 'IMMORTAL';
+    src: local('IMMORTAL'), url(../assets/fonts/IMMORTAL.ttf) format('woff');
+  }
  
-  
 * {
     margin: 0;
     padding: 0;
@@ -23,11 +26,12 @@ html {
 
 body {
    
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'IMMORTAL', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     background-color: $color-primary;
 
 }
+
 /* 
 ////////////////PRE SET/////////////////////////// */

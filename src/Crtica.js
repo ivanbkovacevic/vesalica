@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/vesalica.css';
 
 class Crtica extends Component {
 state={
