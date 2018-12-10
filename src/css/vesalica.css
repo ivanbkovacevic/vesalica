@@ -19,104 +19,102 @@ body {
   font-family: 'IMMORTAL', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  background-color: #420c34; }
+  background-color: white; }
 
 /* 
 ////////////////PRE SET/////////////////////////// */
-.btnmoj {
-  background-color: #720D5D;
-  color: #f2f2f2;
-  font-size: 1.3rem;
+.btnMy {
+  position: absolute;
+  bottom: 10%;
+  right: 30%;
   border: none;
-  width: 80%;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2.3rem;
+  width: 150px;
   padding: 5px;
-  margin-left: 10px; }
-  .btnmoj-slova {
-    background-color: #720D5D;
-    color: #f2f2f2;
-    font-size: 1.3rem;
-    border: 1px solid #420c34;
-    width: 8%;
-    padding: 5px; }
-  .btnmoj-slova:hover {
-    background-color: #a5218b; }
-  .btnmoj-slova-used {
-    background-color: #a5218b;
-    color: #420c34;
-    font-weight: 500;
-    font-size: 1.3rem;
-    border: 1px solid #420c34;
-    width: 8%;
-    padding: 5px; }
+  transform: rotate(330deg);
+  transition: all 0.5s; }
+  .btnMy:hover {
+    opacity: 0.7; }
 
-.zag-rec-container {
-  height: 100px;
-  text-align: center; }
-
-.crtice {
-  display: inline-block;
-  animation-name: pojavljivanje;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-  width: 10%; }
-
-.letters {
+.slova {
+  background-color: transparent;
   color: #f2f2f2;
-  font-size: 1.3rem; }
-  .letters-zagonetka {
-    color: #f2f2f2;
-    font-size: 4rem;
-    letter-spacing: 1rem; }
+  font-size: 2rem;
+  border-radius: 20%;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  padding: 2px; }
+  .slova:hover {
+    background-color: #ada3a3; }
+
+.used {
+  opacity: 0.2;
+  background-color: transparent;
+  color: #ada3a3;
+  font-size: 2rem;
+  border-radius: 20%;
+  width: 50px;
+  height: 50px;
+  padding: 2px; }
+
+.container-btnLetters {
+  width: 70%;
+  min-height: 200px;
+  padding: 20px;
+  margin: 50px auto; }
+
+.main-container {
+  position: relative;
+  background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");
+  background-repeat: no-repeat;
+  height: 900px;
+  width: 99%;
+  background-size: cover;
+  background-position: center; }
+
+.answerContainer {
+  margin: 50px auto;
+  height: 50px;
+  font-size: 3rem;
+  text-align: center;
+  color: #f2f2f2; }
 
 .message {
   color: #f2f2f2;
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
-  height: 35px;
-  margin-bottom: 5%;
-  margin-top: 5%;
-  border: 1px solid wheat; }
-  .message-win {
-    color: #f2f2f2;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #239623;
-    margin-bottom: 5%;
-    margin-top: 5%; }
-  .message-loss {
-    color: #f2f2f2;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #E30425;
-    margin-bottom: 5%;
-    margin-top: 5%; }
+  height: 65px;
+  width: 400px;
+  margin: 50px auto; }
+  .message-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 5rem; }
 
-.wraper-ceo {
-  height: 60%;
-  width: 60%;
-  margin: auto; }
-
-.wraper {
-  padding-top: 100%;
-  /* 1:1 Aspect Ratio */
-  position: relative;
-  /* If you want text inside of it */
-  border: 1px solid #f2f2f2; }
+.none {
+  display: none; }
 
 .vesalo-container {
   position: relative;
-  border: 1px solid #f2f2f2;
-  height: 50vh; }
+  height: 700px;
+  width: 100%;
+  margin-top: 100px;
+  margin-right: 50px; }
 
 .vesalo-glava {
   position: absolute;
-  left: 45%;
-  top: 2%;
-  background-color: #420c34;
-  width: 10%;
-  height: 10%;
-  border-radius: 100%;
+  left: 100px;
+  top: 30px;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
   border: 3px solid #f2f2f2;
+  border-radius: 100%;
   z-index: 10;
   animation-name: pojavljivanje;
   animation-duration: 1.2s;
@@ -124,27 +122,25 @@ body {
 
 .vesalo-torzo {
   position: absolute;
-  left: 50%;
-  top: 12%;
+  left: 147px;
+  top: 127px;
   background-color: #f2f2f2;
-  width: 1%;
-  height: 40%;
-  border-radius: 20%;
-  color: #420c34;
+  width: 5px;
+  height: 250px;
+  color: #f2f2f2;
   animation-name: pojavljivanje;
   animation-duration: 1.2s;
   animation-fill-mode: forwards; }
 
 .vesalo-Lruka {
   position: absolute;
-  left: 36%;
-  top: 12%;
+  left: 70px;
+  top: 123px;
   background-color: #f2f2f2;
-  width: 1%;
-  height: 30%;
-  border-radius: 20%;
-  color: #420c34;
-  transform: rotateZ(60deg);
+  width: 5px;
+  height: 170px;
+  color: #f2f2f2;
+  transform: rotate(60deg);
   transform-origin: 0%;
   animation-name: pojavljivanjeL;
   animation-duration: 1.2s;
@@ -152,14 +148,13 @@ body {
 
 .vesalo-Druka {
   position: absolute;
-  left: 64%;
-  top: 12%;
+  left: 227px;
+  top: 126px;
   background-color: #f2f2f2;
-  width: 1%;
-  height: 30%;
-  border-radius: 20%;
-  color: #420c34;
-  transform: rotateZ(-60deg);
+  width: 5px;
+  height: 170px;
+  color: #f2f2f2;
+  transform: rotate(-60deg);
   transform-origin: 0%;
   animation-name: pojavljivanjeD;
   animation-duration: 1.2s;
@@ -167,32 +162,30 @@ body {
 
 .vesalo-Lnoga {
   position: absolute;
-  left: 36%;
-  top: 45%;
+  left: 70px;
+  top: 335px;
   background-color: #f2f2f2;
-  width: 1%;
-  height: 30%;
-  border-radius: 20%;
-  color: #420c34;
+  width: 5px;
+  height: 170px;
+  color: #f2f2f2;
   animation-name: pojavljivanjeL;
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  transform: rotateZ(40deg);
+  transform: rotate(40deg);
   transform-origin: 0%; }
 
 .vesalo-Dnoga {
   position: absolute;
-  left: 64%;
-  top: 46%;
+  left: 227px;
+  top: 339px;
   background-color: #f2f2f2;
-  width: 1%;
-  height: 30%;
-  border-radius: 20%;
-  color: #420c34;
+  width: 5px;
+  height: 170px;
+  color: #f2f2f2;
   animation-name: pojavljivanjeD;
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
-  transform: rotateZ(-40deg);
+  transform: rotate(-40deg);
   transform-origin: 0%; }
 
 @keyframes pojavljivanjeL {
@@ -212,3 +205,34 @@ body {
     transform: scale(0); }
   100% {
     transform: scale(1); } }
+
+.container-crtice {
+  height: 60px;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto; }
+
+.crtice {
+  display: inline-block;
+  animation-name: pojavljivanje;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  width: 10%; }
+
+.letters {
+  color: #f2f2f2;
+  font-size: 1.3rem; }
+  .letters-zagonetka {
+    color: #f2f2f2;
+    font-size: 4rem;
+    letter-spacing: 1rem; }
+
+.intro-container {
+  position: absolute;
+  width: 90%;
+  height: 400px;
+  color: white;
+  font-size: 3rem;
+  border: 1px solid white;
+  margin: 0 auto;
+  padding: 100px; }

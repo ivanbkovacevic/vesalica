@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/vesalica.css';
+import '../css/vesalica.css';
 
 class LettersToBeGuessed extends Component {
 
@@ -7,10 +7,11 @@ class LettersToBeGuessed extends Component {
         let isUsed=this.props.isUsed;
         let classUsed='';
         if(isUsed){
-            classUsed='-used';
+            classUsed=' used';
         }
         return (
-            <button onClick={this.props.clicked} disabled={isUsed} className={`btnmoj-slova${classUsed}`}>{this.props.value}</button>
+          <button onClick={this.props.clicked} disabled={isUsed} className={`slova${classUsed}`}>{this.props.value}</button>
+            
         );
     }
 }

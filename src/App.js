@@ -4,10 +4,10 @@
 //npm run deploy
 import React, { Component } from 'react';
 import './css/vesalica.css';
-//import axios from 'axios';
-import Vesalo from './Vesalo';
-import LettersToBeGuessed from './LettersToBeGuessed';
-import { Grid, Col, Row,Button } from 'react-bootstrap';
+
+import Intro from './components/Intro';
+import Vesalo from './components/Vesalo';
+import LettersToBeGuessed from './components/LettersToBeGuessed';
 class App extends Component {
 
 state={
@@ -38,17 +38,22 @@ state={
   message:'',
   btnMsg:'START',
   status:'',
+  hide:'none',
+  remove:'',
   gradoviFirebase:[],
   dataReady:false
   
 }
 
 generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
-  let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gradoviSrbije,gameStarted,btnMsg,azbuka}=this.state;
+  let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,
+       gradoviSrbije,gameStarted,btnMsg,azbuka,hide,remove}=this.state;
  
   if(!gameStarted){
     gameStarted=!gameStarted;
     btnMsg='RESETUJ';
+    hide='none';
+    remove='none';
     let gradoviLength=Object.keys(gradoviSrbije).length;
     console.log(gradoviLength);
     console.log(gradoviSrbije);
@@ -60,7 +65,7 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     zagRec=zagRec.toUpperCase();
     zagRecArr=  Array.from(zagRec);// pravljenje array od reci jer treba manipulisati sa tim array
     zagRecArrChecking=[...zagRecArr];//array koji sluzi za proveru da li su sva slova pogodjena tj.  registruje da li su sva slova(i duplikati) upisani
-   
+
     for(let c in zagRecArr){ // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu
       if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
        correctLettArr.push(' ');
@@ -70,10 +75,13 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
        correctLettArr.push('_')
       }
     }
-    this.setState({zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,gameStarted,btnMsg});
+    this.setState({zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,
+          zagRecArrChecking,gameStarted,btnMsg,hide,remove});
   }else{
     console.log('startovano');
     gameStarted=!gameStarted;
+    hide='none';
+   
     for(let i in azbuka){
         azbuka[i].clicked=false;
     }
@@ -92,28 +100,30 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
       message:'',
       btnMsg:'NOVA REČ',
       status:'',
-       azbuka
+       azbuka,hide
     });
   }
   
 }
 
 GuessingLetter=(s,i)=>{ // igrac pogadja rec...
-  let {letterG,zagRecArr,zagRecArrChecking,message,correctLettArr,bingo,zagRecLength,showWord,notMatch,missed,status,azbuka}=this.state;
+  let {letterG,zagRecArr,zagRecArrChecking,message,correctLettArr,bingo,
+         zagRecLength,showWord,notMatch,missed,status,azbuka,hide}=this.state;
   azbuka=azbuka.slice();
   zagRecArr=zagRecArr.slice();
   zagRecArrChecking=zagRecArrChecking.slice();
   correctLettArr=correctLettArr.slice();//array koji hvata tacna slova  tj pogotke
+  hide='';
  
     letterG = s;// hvatanje slova iz arraya
     letterG=letterG.toUpperCase();
     azbuka[i].clicked=true;
-    this.setState({azbuka});
+    this.setState({azbuka,hide});
     
     for(let w in zagRecArr ){ //prolazenje kroz arr reci i cekiranje da li se neki elemenat arr poklapa sa guessovanim slovom
       if(zagRecArr[w]===letterG){
         correctLettArr[w]=letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mozda je moglo da se nazove i displayedLettArr
-        message='Погодили сте слово';
+        message='Pogodili ste slovo';
         this.setState({correctLettArr,message});
       } 
   }
@@ -132,18 +142,18 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
    notMatch=zagRecArr.every(this.checkSlovo);//primenjivanje gornje funkcije na svaki elemenat u nizu
      if(notMatch){//ako je true dodavanje poena u missed  i ispisavanje poruke
-       message='NEMA TOG SLOVA Č Ž !';
+       message='Nema tog slova';
        missed++
        this.setState({message,missed})
      }
       if(bingo===zagRecLength){ //pronaslo se tacno resenje 
-        message='Браво! Нашли сте тачну реч.';
+        message='Bravo ! Našli ste tačnu reč';
         status='-win';
         this.setState({message,status})
       }
 
       if(missed===6 ){ //missed se dobija kada slovo nije matchovano
-        message='ИЗГУБИЛИ СТЕ ПАРТИЈУ';
+        message='Izgubili ste partiju';
         status='-loss';
         showWord=true;
         this.setState({message,status,showWord})
@@ -152,32 +162,6 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     this.setState({letterG})
 }
 
-// upisiGradUBazu=(e)=>{
-//   e.preventDefault() ;
-//    let imeGrada=this.refs.grad.value;
-//    let grad={ime:imeGrada}
-//    e.target.reset();
-//     axios.post('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json',grad)
-//   .then(response=>console.log(response))
-//   .catch(error=>console.log(error));
-// console.log(imeGrada)
-
-// }
-
-// uzmiGradIzBaze=()=>{
-//   let {gradoviFirebase}=this.state;
-//   gradoviFirebase=gradoviFirebase.slice();
-//   gradoviFirebase=[];
-//   axios.get('https://vesalica-caf53.firebaseio.com/gradovi_srbije/.json')
-//   .then(response=>{
-//     for(let i in response.data){
-//       gradoviFirebase.push(response.data[i].ime)
-//     }
-//       console.log(gradoviFirebase)
-//     this.setState({gradoviFirebase,dataReady:true});
-  
-//   })
-// }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
   render() {
@@ -198,52 +182,40 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     })
   )
 
-   if(this.state.dataReady){
-    fire=this.state.gradoviFirebase.map((gr,i)=>{
-      return <p key={i}>{gr}</p>
-    })
-    
-   }
-  
-
+ 
     return (
-      <Grid >
-        <Row>
-          <Col xs={4}><button className="btnmoj" onClick={this.generateWord}>{this.state.btnMsg}</button></Col>
-        
-        </Row>
+      <div className="main-container">
+            <Intro remove={this.state.remove}/>
+        <div className="row">
+    
+           <div className="col-xs-8">
+          
 
-        <Row>
-          <div className='zag-rec-container'>
-              {this.state.showWord ? <div className="letters">Загонетна реч је била: {this.state.zagRec}</div> : null} 
-              <Col xs={12}><span className="letters-zagonetka">{correct}</span></Col>
+          <div className="container-btnLetters">
+             { this.state.gameStarted ?   <div>{abc}</div> : null }
           </div>
-        </Row>
-    <Row>
-    <Col xs={12}> 
-    { this.state.gameStarted ? <div>{abc}</div> : null }
-    </Col>
-     
-    </Row>
-    <Row>
-    <Col xs={12}> 
-       <div className={`message${status}`}>{this.state.message}</div>
-    </Col>
-  
-    </Row>
-    <Row>
-      <Vesalo missed={this.state.missed}/>
+                 <div className="message">
+                  <span className={`message-icon ${this.state.hide}`}> 
+                  {this.state.message==='Pogodili ste slovo' ? <span>&#10004;</span>  : <span>&#10006;</span> }</span> 
+                   {this.state.message}
+                  </div>
 
-      {/* <form onSubmit={this.upisiGradUBazu}>
-        <input type="text" ref='grad' />
-        <button type='submit'>upisi grad</button>
-      </form>
-      <button type='text' onClick={this.uzmiGradIzBaze}>uzmi gradove</button>
-     {fire} */}
-     
-    </Row>
+                  <div className='answerContainer'>
+                   {this.state.showWord ? <div>Zagonetna reč je bila : {this.state.zagRec}</div> : null}
+                  </div>
 
-      </Grid>
+                  <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
+
+           </div>
+           <div className="col-xs-4">
+             <Vesalo missed={this.state.missed}/> 
+             <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}
+            </button>    
+           </div>
+        </div>
+{/* /////////////////////////////// */}
+   
+      </div>
     );
   }
 }

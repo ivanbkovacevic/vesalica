@@ -1,0 +1,128 @@
+
+
+   .vesalo {
+       &-container {
+           position: relative;
+           height: 700px;
+           width: 100%;
+           margin-top: 100px;
+           margin-right: 50px;
+      }
+   
+       &-glava{
+           position: absolute;
+           left: 100px;
+           top: 30px;
+           background-color: transparent;
+           width: 100px;
+           height:  100px;
+           border: 3px solid $color-primary;
+           border-radius: 100%;
+           z-index: 10;
+           animation-name: pojavljivanje;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards;
+       }   
+       &-torzo{ 
+           position: absolute;
+           left: 147px;
+           top: 127px;
+           background-color: $color-back;
+           width: 5px;
+           height: 250px;
+           color: $color-primary;
+           animation-name: pojavljivanje;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards;
+        
+       } 
+       &-Lruka{
+           position: absolute;
+           left: 70px;
+           top: 123px;
+           background-color: $color-back;
+           width: 5px;
+           height: 170px;
+           color: $color-primary;
+           transform: rotate(60deg);
+           transform-origin: 0%;
+           animation-name: pojavljivanjeL;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards; 
+       } 
+       &-Druka{
+           position: absolute;
+           left: 227px;
+           top: 126px;
+           background-color: $color-back;
+           width: 5px;
+           height: 170px;
+           color: $color-primary;
+           transform: rotate(-60deg);
+           transform-origin: 0%;
+           animation-name: pojavljivanjeD;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards;
+          
+          
+       } 
+       &-Lnoga{
+           position: absolute;
+           left: 70px;
+           top: 335px;
+           background-color: $color-back;
+           width: 5px;
+           height: 170px;
+           color: $color-primary;
+           animation-name: pojavljivanjeL;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards;
+           transform: rotate(40deg);
+           transform-origin: 0%;
+           
+       } 
+       &-Dnoga{
+           position: absolute;
+           left: 227px;
+           top: 339px;
+           background-color: $color-back;
+           width: 5px;
+           height: 170px;
+           color: $color-primary;
+           animation-name: pojavljivanjeD;
+           animation-duration: 1.2s;
+           animation-fill-mode: forwards;
+           transform: rotate(-40deg);
+           transform-origin: 0%;
+   
+       } 
+       
+   }
+   @keyframes pojavljivanjeL {
+       0%{
+           transform: scale(0) rotateZ(0);
+       }
+       100%{
+           transform: scale(1) rotateZ(60deg);
+       }
+           
+   }
+   @keyframes pojavljivanjeD {
+       0%{
+           transform: scale(0) rotateZ(0);
+       }
+       100%{
+           transform: scale(1) rotateZ(-60deg);
+       }
+           
+   }
+   @keyframes pojavljivanje {
+       0%{
+           transform: scale(0) ;
+       }
+       100%{
+           transform: scale(1) ;
+       }
+           
+   }
+   
