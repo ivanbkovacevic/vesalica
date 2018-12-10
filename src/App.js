@@ -27,11 +27,11 @@ state={
   {id:0,value:"A",clicked:false},{id:1,value:"B",clicked:false},{id:2,value:"V",clicked:false},{id:3,value:"G",clicked:false},
   {id:4,value:"D",clicked:false},{id:5,value:"Đ",clicked:false},{id:6,value:"E",clicked:false},{id:7,value:"Ž",clicked:false},
   {id:8,value:"Z",clicked:false},{id:9,value:"I",clicked:false},{id:10,value:"J",clicked:false},{id:11,value:"K",clicked:false},
-  {id:12,value:"L",clicked:false},{id:13,value:"Lj",clicked:false},{id:14,value:"M",clicked:false},{id:15,value:"N",clicked:false},
-  {id:16,value:"Nj",special:true, clicked:false},{id:17,value:"O",clicked:false},{id:18,value:"P",clicked:false},{id:19,value:"R",clicked:false},
+  {id:12,value:"L",clicked:false},{id:13,value:"LJ",clicked:false},{id:14,value:"M",clicked:false},{id:15,value:"N",clicked:false},
+  {id:16,value:"NJ",special:true, clicked:false},{id:17,value:"O",clicked:false},{id:18,value:"P",clicked:false},{id:19,value:"R",clicked:false},
   {id:20,value:"S",clicked:false},{id:21,value:"T",clicked:false},{id:22,value:"U",clicked:false},{id:23,value:"F",clicked:false},
   {id:24,value:"H",clicked:false},{id:25,value:"C",clicked:false},{id:26,value:"Ć",clicked:false},{id:27,value:"Č",clicked:false},
-  {id:28,value:"Dž",clicked:false},{id:29,value:"Š",clicked:false}],
+  {id:28,value:"DŽ",clicked:false},{id:29,value:"Š",clicked:false}],
   bingo:0,
   missed:0,
   letterG:'',
@@ -66,11 +66,15 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     zagRec=zagRec.toUpperCase();
     zagRecArr = Array.from(zagRec);// pravljenje array od reci jer treba manipulisati sa tim array
     zagRecArrChecking=[...zagRecArr];//array koji sluzi za proveru da li su sva slova pogodjena tj.  registruje da li su sva slova(i duplikati) upisani
-
+  
+    let Lj= zagRec.includes("LJ")
+    let Nj= zagRec.includes('NJ');
+    let Dž= zagRec.includes('DŽ');
+    let LjIndex=zagRec.indexOf("LJ")
+    let NjIndex=zagRec.indexOf("NJ")
+    let DžIndex=zagRec.indexOf("DŽ")
     for(let c in zagRecArr){ // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu
-      let doubleL= zagRec.indexOf('Lj');
-      let doubleL1= zagRec.indexOf('Nj');
-      let doubleL2= zagRec.indexOf('Dž');
+     
       if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
        correctLettArr.push(' ');
        zagRecArrChecking.splice(c,1);
@@ -79,10 +83,36 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
       }else{
        correctLettArr.push('_')
       }
-      if(doubleL){
-        
-      }
     }
+
+    if(Lj){// specijalni slucajevi gde se slova pisu sa dva karaktera
+        correctLettArr.splice(LjIndex,1);
+        zagRecArr[LjIndex]="LJ";
+        zagRecArr.splice(LjIndex+1,1);
+        zagRecArrChecking=[...zagRecArr];
+        zagRecLength--;   
+        console.log('iybaceno LJ') 
+        console.log(correctLettArr) 
+    }
+    if(Nj){
+      correctLettArr.splice(NjIndex,1);
+      zagRecArr[NjIndex]="NJ";
+      zagRecArr.splice(NjIndex+1,1);
+      zagRecArrChecking=[...zagRecArr];
+      zagRecLength--;   
+      console.log('iybaceno NJ') 
+      console.log(correctLettArr) 
+  }
+  if(Dž){
+    correctLettArr.splice(DžIndex,1);
+    zagRecArr[DžIndex]="DŽ";
+    zagRecArr.splice(DžIndex+1,1);
+    zagRecArrChecking=[...zagRecArr];
+    zagRecLength--;   
+    console.log('iybaceno DŽ') 
+    console.log(correctLettArr) 
+}
+
     this.setState({zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,
           zagRecArrChecking,gameStarted,btnMsg,hide,remove});
   }else{
@@ -135,12 +165,10 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
         correctLettArr[w]=letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mozda je moglo da se nazove i displayedLettArr
         message='Pogodili ste slovo';
         this.setState({correctLettArr,message});
-      } 
+      }
+      
   }
 
-   
-  
-   
 
   for(let ww in zagRecArrChecking ){ //cekiranje pogodatak i dobijanje da li pobeda ili ne
     if(zagRecArrChecking[ww]===letterG){
@@ -199,18 +227,21 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     return (
       <div className="main-container">
             <Intro remove={this.state.remove} started={this.state.gameStarted} />
-        <div className="row">
-           <div className="col-xs-8">
-          <div className="container-btnLetters">
+            <div className="row">
+            <div className="container-btnLetters">
              { this.state.gameStarted ?   <div>{abc}</div> : null }
           </div>
+            </div>
+        <div className="row">
+           <div className="col-xs-6 col-md-8">
+         
           <Message hide={this.state.hide} message={this.state.message} />
                   <div className='answerContainer'>
                    {this.state.showWord ? <div>Zagonetna reč je bila : {this.state.zagRec}</div> : null}
                   </div>
-                  <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
+            <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
            </div>
-           <div className="col-xs-4">
+           <div className="col-xs-6 col-md-4">
              <Vesalo missed={this.state.missed}/> 
              <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}
             </button>    
