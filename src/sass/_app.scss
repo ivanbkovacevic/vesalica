@@ -15,13 +15,11 @@
     color: $color-primary;
 }
 
-
-
 .message {
     color: $color-back;
     font-size: 3rem;
     text-align: center;
-    height: 65px;
+    height: 105px;
     width: 400px;
     margin: 50px auto;
 
@@ -32,6 +30,20 @@
     }
 
 }
+.blink{
+    height: 50px;
+    margin-bottom: 30px;
+}
+
 .none{
     display: none;
+}
+
+@keyframes blinking{
+    0%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 1;
+    }
 }
