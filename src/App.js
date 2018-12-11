@@ -210,6 +210,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
   render() {
     let {status,correctLettArr}=this.state;
    let correct=null;
+   let correctUnder=null;
    let abc=null;
    let fire=null;
    
@@ -217,16 +218,23 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
       return <span className='crtice'>{l}</span>
     })
 
+    correctUnder=correctLettArr.map((l,i)=>{
+      return <span className='under'>{"_"}</span>
+    })
+
     abc=(
       this.state.azbuka.map((slo,i)=>{
-      return (<LettersToBeGuessed isUsed={slo.clicked} value={slo.value} clicked={()=>this.GuessingLetter(slo.value,i)}/>
+      return (<LettersToBeGuessed isUsed={slo.clicked}
+        value={slo.value} 
+        clicked={()=>this.GuessingLetter(slo.value,i)}/>
         )
     })
   )
 
     return (
-      <div className="main-container">
-            <Intro remove={this.state.remove} started={this.state.gameStarted} />
+        <div className="main-container">
+            <Intro remove={this.state.remove} 
+              started={this.state.gameStarted} />
             <div className="row">
             <div className="container-btnLetters">
              { this.state.gameStarted ?   <div>{abc}</div> : null }
@@ -240,6 +248,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
                    {this.state.showWord ? <div>Zagonetna reč je bila : {this.state.zagRec}</div> : null}
                   </div>
             <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
+            <div className="container-crtice under-container">{correctUnder}</div>
            </div>
            <div className="col-xs-6 col-md-4">
              <Vesalo missed={this.state.missed}/> 
@@ -247,7 +256,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
             </button>    
            </div>
         </div>
-      </div>
+      </div>      
     );
   }
 }

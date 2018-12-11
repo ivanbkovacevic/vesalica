@@ -69,19 +69,20 @@ body {
   padding: 2px; }
 
 .container-btnLetters {
-  width: 70%;
+  width: 100%;
   min-height: 120px;
-  padding: 20px;
-  margin: 20px auto; }
+  padding: 20px 30px;
+  margin: 20px auto;
+  text-align: center; }
 
 .main-container {
   position: relative;
   background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");
   background-repeat: no-repeat;
-  height: 900px;
-  width: 99%;
+  min-height: 900px;
+  max-width: 100%;
   background-size: cover;
-  background-position: center; }
+  background-position: 1px; }
 
 .answerContainer {
   margin: 50px auto;
@@ -242,6 +243,21 @@ body {
     color: #f2f2f2;
     font-size: 4rem;
     letter-spacing: 1rem; }
+
+.under-container {
+  margin-top: -57px;
+  height: 10px; }
+
+.under {
+  display: inline-block;
+  animation-name: pojavljivanje;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  width: 10%;
+  height: 10px;
+  color: white;
+  font-size: 4rem;
+  letter-spacing: 1rem; }
 
 .intro-container {
   position: absolute;

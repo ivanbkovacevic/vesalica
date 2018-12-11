@@ -10,7 +10,9 @@ class LettersToBeGuessed extends Component {
             classUsed=' used';
         }
         return (
-          <button onClick={this.props.clicked} disabled={isUsed} className={`slova${classUsed}`}>{this.props.value}</button>
+          <button onClick={this.props.clicked} 
+          disabled={isUsed} 
+          className={`slova${classUsed}`}>{this.props.value}</button>
             
         );
     }

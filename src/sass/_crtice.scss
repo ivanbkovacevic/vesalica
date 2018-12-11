@@ -3,6 +3,8 @@
     width: 90%;
     text-align: center;
     margin: 0 auto;
+
+   
 }
 
 .crtice{
@@ -23,4 +25,21 @@
     letter-spacing: 1rem;
 }
 
+}
+
+.under-container{
+    margin-top:-57px;
+    height:10px;
+}
+
+.under{
+    display: inline-block;
+    animation-name: pojavljivanje;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    width: 10%;
+    height: 10px;
+    color:white;
+    font-size: 4rem;
+    letter-spacing: 1rem;
 }

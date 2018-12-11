@@ -14,7 +14,6 @@ class Intro extends Component {
                 <h1>Dobro došli u igricu Vešalica</h1>
                  <p>Cilj igre je da pogodite zagonetnu rec</p>
                  <p>U pitanju su gradovi Srbije</p>
-                 <p>Kliknite na dugme dole desno za pocetak</p>
                  <button className="btnMy btnMy-intro" onClick={this.introSlide}>Pocni sa igrom</button>
             </div>
         );
