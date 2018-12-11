@@ -1,13 +1,14 @@
 {
-  "main.css": "/vesalica/static/css/main.d00d3b04.chunk.css",
-  "main.js": "/vesalica/static/js/main.5201e846.chunk.js",
-  "main.js.map": "/vesalica/static/js/main.5201e846.chunk.js.map",
-  "static/js/1.82845b06.chunk.js": "/vesalica/static/js/1.82845b06.chunk.js",
-  "static/js/1.82845b06.chunk.js.map": "/vesalica/static/js/1.82845b06.chunk.js.map",
-  "runtime~main.js": "/vesalica/static/js/runtime~main.61eb54e5.js",
-  "runtime~main.js.map": "/vesalica/static/js/runtime~main.61eb54e5.js.map",
-  "static/css/main.d00d3b04.chunk.css.map": "/vesalica/static/css/main.d00d3b04.chunk.css.map",
-  "index.html": "/vesalica/index.html",
-  "precache-manifest.b14df555394f67bf5930e993a18ce775.js": "/vesalica/precache-manifest.b14df555394f67bf5930e993a18ce775.js",
-  "service-worker.js": "/vesalica/service-worker.js"
+  "main.css": "/vesalica1/static/css/main.c5bca57d.chunk.css",
+  "main.js": "/vesalica1/static/js/main.637cbadf.chunk.js",
+  "main.js.map": "/vesalica1/static/js/main.637cbadf.chunk.js.map",
+  "static/js/1.1a520196.chunk.js": "/vesalica1/static/js/1.1a520196.chunk.js",
+  "static/js/1.1a520196.chunk.js.map": "/vesalica1/static/js/1.1a520196.chunk.js.map",
+  "runtime~main.js": "/vesalica1/static/js/runtime~main.f51ea5fe.js",
+  "runtime~main.js.map": "/vesalica1/static/js/runtime~main.f51ea5fe.js.map",
+  "static/css/main.c5bca57d.chunk.css.map": "/vesalica1/static/css/main.c5bca57d.chunk.css.map",
+  "static/media/vesalica.css": "/vesalica1/static/media/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.13ea74c4.png",
+  "index.html": "/vesalica1/index.html",
+  "precache-manifest.adb28119c49703096aa2c61109937968.js": "/vesalica1/precache-manifest.adb28119c49703096aa2c61109937968.js",
+  "service-worker.js": "/vesalica1/service-worker.js"
 }
