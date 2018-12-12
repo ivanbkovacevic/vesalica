@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import '../css/vesalica.css';
+import Canvas from'./Canvas';
 
 class Vesalo extends Component {
-
     render() {
         return (
             <div className='vesalo-container'>   
+            <Canvas text={"cao"}/>
                {this.props.missed >0 ? <div className='vesalo-glava'>-</div> : null}
                {this.props.missed >1 ? <div className='vesalo-torzo'>-</div>: null}
                {this.props.missed >2 ? <div className='vesalo-Lruka'>-</div>: null}

@@ -1,4 +1,9 @@
-
+.myCanvas{
+    position: relative;
+    border: 2px solid red;
+    background-color: red;
+    z-index: 100;
+}
 
    .vesalo {
        &-container {

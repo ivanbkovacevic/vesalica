@@ -27,9 +27,9 @@ body {
   position: absolute;
   bottom: -15%;
   right: 30%;
-  border: none;
+  border: 1px dashed white;
   outline: none;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.26);
   color: white;
   font-size: 2.3rem;
   width: 150px;
@@ -37,6 +37,14 @@ body {
   transform: rotate(330deg);
   transition: all 0.5s;
   z-index: 89; }
+  @media (max-width: 767.98px) {
+    .btnMy {
+      font-size: 2rem;
+      bottom: -5%; } }
+  @media (max-width: 575.98px) {
+    .btnMy {
+      bottom: -5%;
+      transform: rotate(0deg); } }
   .btnMy-intro {
     width: 150px;
     height: 90px;
@@ -90,6 +98,12 @@ body {
   font-size: 3rem;
   text-align: center;
   color: #f2f2f2; }
+  @media (max-width: 767.98px) {
+    .answerContainer {
+      font-size: 2rem; } }
+  @media (max-width: 575.98px) {
+    .answerContainer {
+      font-size: 1.5rem; } }
 
 .message {
   color: #f2f2f2;
@@ -98,6 +112,14 @@ body {
   height: 105px;
   width: 400px;
   margin: 50px auto; }
+  @media (max-width: 767.98px) {
+    .message {
+      font-size: 2rem;
+      width: 300px; } }
+  @media (max-width: 575.98px) {
+    .message {
+      font-size: 1.5rem;
+      width: 200px; } }
   .message-icon {
     display: inline-block;
     margin-right: 10px;
@@ -115,6 +137,12 @@ body {
     opacity: 0.1; }
   100% {
     opacity: 1; } }
+
+.myCanvas {
+  position: relative;
+  border: 2px solid red;
+  background-color: red;
+  z-index: 100; }
 
 .vesalo-container {
   position: relative;
@@ -235,6 +263,14 @@ body {
   animation-duration: 1.2s;
   animation-fill-mode: forwards;
   width: 10%; }
+  @media (max-width: 767.98px) {
+    .crtice {
+      font-size: 2rem;
+      letter-spacing: 0.6rem; } }
+  @media (max-width: 575.98px) {
+    .crtice {
+      font-size: 1rem;
+      letter-spacing: 0.3rem; } }
 
 .letters {
   color: #f2f2f2;
@@ -247,6 +283,12 @@ body {
 .under-container {
   margin-top: -57px;
   height: 10px; }
+  @media (max-width: 767.98px) {
+    .under-container {
+      margin-top: -37px; } }
+  @media (max-width: 575.98px) {
+    .under-container {
+      margin-top: -30px; } }
 
 .under {
   display: inline-block;
@@ -258,6 +300,14 @@ body {
   color: white;
   font-size: 4rem;
   letter-spacing: 1rem; }
+  @media (max-width: 767.98px) {
+    .under {
+      font-size: 2rem;
+      letter-spacing: 0.6rem; } }
+  @media (max-width: 575.98px) {
+    .under {
+      font-size: 1rem;
+      letter-spacing: 0.3rem; } }
 
 .intro-container {
   position: absolute;
