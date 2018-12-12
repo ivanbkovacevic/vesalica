@@ -90,7 +90,7 @@ body {
   min-height: 900px;
   max-width: 100%;
   background-size: cover;
-  background-position: 1px; }
+  background-position: left; }
 
 .answerContainer {
   margin: 50px auto;
@@ -318,7 +318,6 @@ body {
   color: white;
   font-size: 3rem;
   border: 1px solid white;
-  background-color: rgba(0, 0, 0, 0.856);
   margin: 0 auto;
   padding: 100px 200px;
   z-index: 91; }
