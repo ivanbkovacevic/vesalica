@@ -1,14 +1,14 @@
 {
-  "main.css": "/vesalica/static/css/main.598de793.chunk.css",
-  "main.js": "/vesalica/static/js/main.fd39482e.chunk.js",
-  "main.js.map": "/vesalica/static/js/main.fd39482e.chunk.js.map",
-  "static/js/1.1a520196.chunk.js": "/vesalica/static/js/1.1a520196.chunk.js",
-  "static/js/1.1a520196.chunk.js.map": "/vesalica/static/js/1.1a520196.chunk.js.map",
+  "main.css": "/vesalica/static/css/main.80b1a6ec.chunk.css",
+  "main.js": "/vesalica/static/js/main.721536b3.chunk.js",
+  "main.js.map": "/vesalica/static/js/main.721536b3.chunk.js.map",
+  "static/js/1.16bf9edb.chunk.js": "/vesalica/static/js/1.16bf9edb.chunk.js",
+  "static/js/1.16bf9edb.chunk.js.map": "/vesalica/static/js/1.16bf9edb.chunk.js.map",
   "runtime~main.js": "/vesalica/static/js/runtime~main.61eb54e5.js",
   "runtime~main.js.map": "/vesalica/static/js/runtime~main.61eb54e5.js.map",
-  "static/css/main.598de793.chunk.css.map": "/vesalica/static/css/main.598de793.chunk.css.map",
-  "static/media/vesalica.css": "/vesalica/static/media/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.13ea74c4.png",
+  "static/css/main.80b1a6ec.chunk.css.map": "/vesalica/static/css/main.80b1a6ec.chunk.css.map",
+  "static/media/vesalica.css": "/vesalica/static/media/IMMORTAL.5b003b64.ttf",
   "index.html": "/vesalica/index.html",
-  "precache-manifest.162a2b1aa82f2add4c5002644b9fada8.js": "/vesalica/precache-manifest.162a2b1aa82f2add4c5002644b9fada8.js",
+  "precache-manifest.b13d8fbe8be48db7c8dea857da3e07c4.js": "/vesalica/precache-manifest.b13d8fbe8be48db7c8dea857da3e07c4.js",
   "service-worker.js": "/vesalica/service-worker.js"
 }
