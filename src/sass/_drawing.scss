@@ -1,38 +1,14 @@
-text {
-    font-family: sans-serif;
-  
-    stroke-dasharray: 100%;
-    stroke-dashoffset: 100%;
-  
-    -webkit-animation: draw 8s forwards;
-       -moz-animation: draw 8s forwards;
-         -o-animation: draw 8s forwards;
-        -ms-animation: draw 8s forwards;
-            animation: draw 8s forwards;
+.canvas {
+  &-container{
+    position: relative;
+    margin-left: -50px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid red;
   }
-  
-  @-webkit-keyframes draw {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  @-moz-keyframes draw {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  @-o-keyframes draw {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  @-ms-keyframes draw {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-  @keyframes draw {
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin-right: 80px;
+  padding-right: 250px;
+}
