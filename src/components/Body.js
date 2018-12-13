@@ -16,11 +16,14 @@ export  function LeftHand(ctx) {
    }
   }
 
+  
   export  function Torzo(ctx) {
     let to=null;
-   return  to ={1:ctx.beginPath(),// Torzo
+    let x2=200;
+    let y2=505;
+   return  to = {1:ctx.beginPath(),// Torzo
     2:ctx.moveTo(200, 205),
-    3:ctx.lineTo(200, 400),
+    3:ctx.lineTo(x2,y2),
     4:ctx.stroke(),
    }
   }
@@ -51,6 +54,37 @@ export  function LeftHand(ctx) {
    }
   }
 
+  export function update() {
+    console.log('pera');
+  }
+
+   function Animate(ctx){
+     requestAnimationFrame(Animate)
+    console.log('dvsdws')
+    let he=null;
+     he ={1:ctx.beginPath(),//glava
+    2:ctx.arc(300,150,50,0,2*Math.PI),
+    3:ctx.lineWidth = 10,
+    4:ctx.fillStyle = "transparent",
+    5:ctx.stroke(),
+     }
+  }
+
+  export  function Practise(ctx) {
+    let he=null;
+   return  he ={1:ctx.beginPath(),//glava
+    2:ctx.arc(300,150,50,0,2*Math.PI),
+    3:ctx.lineWidth = 10,
+    4:ctx.fillStyle = "transparent",
+    5:ctx.stroke(),
+   }
+  }
+
+
+  
+  
+  
+ 
 
 
 

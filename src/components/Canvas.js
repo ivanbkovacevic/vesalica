@@ -5,26 +5,44 @@ import {Wood} from './Wood';
 
 
 class Canvas extends Component {
+  state={
+    ctx:null
+  }
     componentDidMount() {
-        const canvas = this.refs.canvas
-        const ctx = canvas.getContext("2d")
+          let{ctx}=this.state;
+          ctx=this.refs.canvas.getContext("2d");
+         
+          this.setState({ctx});
           ctx.strokeStyle = "white";
           ctx.lineWidth = 10;
-
-            LeftHand(ctx);
+           // LeftHand(ctx); 
             RightHand(ctx);
             Torzo(ctx);
             LeftLeg(ctx);
             RightLeg(ctx);
             Head(ctx);
             Wood(ctx);
+  
+            this.test('test');
+            this.animate(ctx)
+        }   
 
-            // ctx.strokeRect(0, 0, 400, 600);//canvas  ceo
-            // ctx.fill();
+        test=(x)=>{
+          console.log(x);
+        } 
+        
        
-      }
+        animate=()=>{
+          requestAnimationFrame(this.animate)
+          console.log('animate');
+        
+          // LeftHand(this.state.ctx); 
+        }
+        
+       
+
       render() {
-      
+     
         return(
           <div className="canvas-container">
             <canvas className="canvas" ref="canvas" width={400} height={600} />
