@@ -4,9 +4,10 @@ import Canvas from'./Canvas';
 
 class Vesalo extends Component {
     render() {
+        let miss1=this.props.missed;
         return (
             <div className='vesalo-container'>   
-            <Canvas text={"cao"}/>
+            <Canvas miss1={miss1}/>
                {this.props.missed >0 ? <div className='vesalo-glava'>-</div> : null}
                {this.props.missed >1 ? <div className='vesalo-torzo'>-</div>: null}
                {this.props.missed >2 ? <div className='vesalo-Lruka'>-</div>: null}

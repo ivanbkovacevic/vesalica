@@ -1,8 +1,8 @@
-export  function LeftHand(ctx) {
+export  function LeftHand(ctx,x,y) {
     let lh=null;
    return  lh ={1:ctx.beginPath(),
    2:ctx.moveTo(200,215),// ruka levo pocetak
-   3:ctx.lineTo(50,350),
+   3:ctx.lineTo(x,y),
    4:ctx.stroke()
    }
   }
@@ -44,10 +44,10 @@ export  function LeftHand(ctx) {
    }
   }
 
-  export  function Head(ctx) {
+  export  function Head(ctx,ang) {
     let he=null;
    return  he ={1:ctx.beginPath(),//glava
-    2:ctx.arc(200,150,50,0,2*Math.PI),
+    2:ctx.arc(200,150,50, 1*Math.PI,ang*Math.PI),
     3:ctx.lineWidth = 10,
     4:ctx.fillStyle = "transparent",
     5:ctx.stroke(),
