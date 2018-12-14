@@ -17,13 +17,12 @@ export  function LeftHand(ctx,x,y) {
   }
 
   
-  export  function Torzo(ctx) {
+  export  function Torzo(ctx,eX,eY) {
     let to=null;
-    let x2=200;
-    let y2=505;
+   
    return  to = {1:ctx.beginPath(),// Torzo
     2:ctx.moveTo(200, 205),
-    3:ctx.lineTo(x2,y2),
+    3:ctx.lineTo(eX,eY),
     4:ctx.stroke(),
    }
   }
@@ -44,10 +43,10 @@ export  function LeftHand(ctx,x,y) {
    }
   }
 
-  export  function Head(ctx,ang) {
+  export  function Head(ctx,sA,eA) {
     let he=null;
    return  he ={1:ctx.beginPath(),//glava
-    2:ctx.arc(200,150,50, 1*Math.PI,ang*Math.PI),
+    2:ctx.arc(200,150,50, sA,eA),
     3:ctx.lineWidth = 10,
     4:ctx.fillStyle = "transparent",
     5:ctx.stroke(),
