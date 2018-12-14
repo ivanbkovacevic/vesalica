@@ -16,7 +16,6 @@ export  function LeftHand(ctx,x,y) {
    }
   }
 
-  
   export  function Torzo(ctx,eX,eY) {
     let to=null;
    
@@ -43,18 +42,14 @@ export  function LeftHand(ctx,x,y) {
    }
   }
 
-  export  function Head(ctx,sA,eA) {
+  export  function Head(ctx,sA,eA,ry) {
     let he=null;
    return  he ={1:ctx.beginPath(),//glava
-    2:ctx.arc(200,150,50, sA,eA),
+    2:ctx.arc(200,ry,50, sA,eA),
     3:ctx.lineWidth = 10,
     4:ctx.fillStyle = "transparent",
     5:ctx.stroke(),
    }
-  }
-
-  export function update() {
-    console.log('pera');
   }
 
   export function Clear(ctx){
@@ -62,6 +57,8 @@ export  function LeftHand(ctx,x,y) {
     console.log('clerrrrrrrrrrrrrrrrrrr')
     return ctx.clearRect(0,0,400,600);    
    }
+
+
 
 
   

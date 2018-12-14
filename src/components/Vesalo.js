@@ -8,7 +8,7 @@ class Vesalo extends Component {
         let drawCanvas=this.props.drawCanvas;
         return (
             <div className='vesalo-container'>   
-            <Canvas drawCanvas={drawCanvas} miss1={miss1}/>
+            <Canvas message={this.props.message} drawCanvas={drawCanvas} miss1={miss1}/>
                {/* {this.props.missed >0 ? <div className='vesalo-glava'>-</div> : null}
                {this.props.missed >1 ? <div className='vesalo-torzo'>-</div>: null}
                {this.props.missed >2 ? <div className='vesalo-Lruka'>-</div>: null}
