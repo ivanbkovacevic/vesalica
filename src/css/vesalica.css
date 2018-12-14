@@ -83,6 +83,11 @@ body {
   margin: 20px auto;
   text-align: center; }
 
+.test {
+  margin-top: -100px;
+  width: 300px;
+  height: 100px; }
+
 .main-container {
   position: relative;
   background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");

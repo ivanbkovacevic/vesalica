@@ -251,7 +251,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
             <div className="container-crtice under-container">{correctUnder}</div>
            </div>
            <div className="col-xs-6 col-md-4">
-             <Vesalo missed={this.state.missed}/> 
+             <Vesalo drawCanvas={this.state.gameStarted} missed={this.state.missed}/> 
              <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}
             </button>    
            </div>
