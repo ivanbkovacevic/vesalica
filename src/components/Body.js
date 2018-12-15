@@ -1,43 +1,42 @@
-export  function LeftHand(ctx,x,y) {
+export  function LeftHand(ctx,x1,y1,x2,y2) {
     let lh=null;
    return  lh ={1:ctx.beginPath(),
-   2:ctx.moveTo(200,215),// ruka levo pocetak
-   3:ctx.lineTo(x,y),
+   2:ctx.moveTo(x1,y1),// ruka levo pocetak
+   3:ctx.lineTo(x2,y2),
    4:ctx.stroke()
    }
   }
 
-  export  function RightHand(ctx,x,y) {
+  export  function RightHand(ctx,x1,y1,x2,y2) {
     let rh=null;
    return  rh ={1:ctx.beginPath(),
-   2:ctx.moveTo(200,215),// ruka levo pocetak
-   3:ctx.lineTo(x,y),
+   2:ctx.moveTo(x1,y1),// ruka levo pocetak
+   3:ctx.lineTo(x2,y2),
    4:ctx.stroke()
    }
   }
 
-  export  function Torzo(ctx,eX,eY) {
+  export  function Torzo(ctx,x1,y1,x2,y2) {
     let to=null;
-   
    return  to = {1:ctx.beginPath(),// Torzo
-    2:ctx.moveTo(200, 205),
-    3:ctx.lineTo(eX,eY),
+    2:ctx.moveTo(x1,y1),
+    3:ctx.lineTo(x2,y2),
     4:ctx.stroke(),
    }
   }
-  export  function LeftLeg(ctx,x,y) {
+  export  function LeftLeg(ctx,x1,y1,x2,y2) {
     let ll=null;
    return  ll ={ 1:ctx.beginPath(),
-    2:ctx.moveTo(200,400),// noga levo pocetak
-    3:ctx.lineTo(x,y),
+    2:ctx.moveTo(x1,y1),// noga levo pocetak
+    3:ctx.lineTo(x2,y2),
     4:ctx.stroke()
    }
   }
-  export  function RightLeg(ctx,x,y) {
+  export  function RightLeg(ctx,x1,y1,x2,y2) {
     let rl=null;
    return  rl ={ 1:ctx.beginPath(),
-    2:ctx.moveTo(200,400),// noga desno pocetak
-    3:ctx.lineTo(x,y),
+    2:ctx.moveTo(x1,y1),// noga desno pocetak
+    3:ctx.lineTo(x2,y2),
     4:ctx.stroke()
    }
   }

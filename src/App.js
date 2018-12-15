@@ -203,6 +203,12 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
     this.setState({letterG});
 
+    if(missed==6){
+setTimeout(()=>{
+   this.setState({missed:7});
+},1000)
+    }
+
 }
 
 
