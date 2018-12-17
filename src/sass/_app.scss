@@ -2,12 +2,15 @@
     position: relative;
     background-image: url('../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png');
     background-repeat: no-repeat;
-    height:750px;
+    height:900px;
     max-width:100%;
     overflow: hidden;
     background-size: cover;
     background-position: left;
     border:1px solid green;
+    @media (max-width: 991.98px) { 
+        height:900px; 
+     }
     @media (max-width: 767.98px) {
         font-size: 2rem;
         height:700px;
@@ -21,7 +24,7 @@
 }
 .answerContainer{
     margin:50px auto;
-    height: 50px;
+    height: 90px;
     font-size: 3rem;
     text-align: center;
     color: $color-primary;

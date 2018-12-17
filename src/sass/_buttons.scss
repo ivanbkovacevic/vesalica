@@ -1,7 +1,7 @@
 .btnMy {
     position: absolute;
-    bottom: -17%;
-    left:30%;
+    bottom: -4%;
+    left:60%;
     border: 1px dashed white;
     outline: none;
     background-color: rgba(255, 255, 255, 0.26);
@@ -12,7 +12,10 @@
     transform: rotate(330deg);
     transition: all 0.5s;
     z-index: 89;
-
+    @media (max-width: 991.98px) {
+        bottom: -4%;
+        left:50%;
+     }
     @media (max-width: 767.98px) { 
         font-size: 2rem;
         bottom: -15%;

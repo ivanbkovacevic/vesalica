@@ -25,8 +25,8 @@ body {
 ////////////////PRE SET/////////////////////////// */
 .btnMy {
   position: absolute;
-  bottom: -17%;
-  left: 30%;
+  bottom: -4%;
+  left: 60%;
   border: 1px dashed white;
   outline: none;
   background-color: rgba(255, 255, 255, 0.26);
@@ -37,6 +37,10 @@ body {
   transform: rotate(330deg);
   transition: all 0.5s;
   z-index: 89; }
+  @media (max-width: 991.98px) {
+    .btnMy {
+      bottom: -4%;
+      left: 50%; } }
   @media (max-width: 767.98px) {
     .btnMy {
       font-size: 2rem;
@@ -117,12 +121,15 @@ body {
   position: relative;
   background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");
   background-repeat: no-repeat;
-  height: 750px;
+  height: 900px;
   max-width: 100%;
   overflow: hidden;
   background-size: cover;
   background-position: left;
   border: 1px solid green; }
+  @media (max-width: 991.98px) {
+    .main-container {
+      height: 900px; } }
   @media (max-width: 767.98px) {
     .main-container {
       font-size: 2rem;
@@ -135,7 +142,7 @@ body {
 
 .answerContainer {
   margin: 50px auto;
-  height: 50px;
+  height: 90px;
   font-size: 3rem;
   text-align: center;
   color: #f2f2f2; }
@@ -276,10 +283,12 @@ body {
       margin-right: 5px; } }
   .canvas-container {
     margin-right: 40px;
-    height: 400px;
-    width: 266.66666px; }
+    height: 600px;
+    width: 400px; }
     @media (max-width: 767.98px) {
       .canvas-container {
+        height: 400px;
+        width: 266.66666px;
         margin-right: 10px; } }
     @media (max-width: 575.98px) {
       .canvas-container {

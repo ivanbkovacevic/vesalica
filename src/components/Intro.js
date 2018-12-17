@@ -11,10 +11,9 @@ class Intro extends Component {
     render() {       
         return (
             <div id="introContainer" className="intro-container">
-                <h1>Dobro došli u igricu - Vešalica</h1>
-                 <p>Cilj igre je da pogodite zagonetnu reč</p>
-                 <p>U pitanju su gradovi Srbije</p>
-                 <button className="btnMy btnMy-intro" onClick={this.introSlide}>Počni sa igrom</button>
+                <h1>Welcome to the game - Vešalica</h1>
+                 <p>Goal of the game is to gues capital cityes of Europe</p>          
+                 <button className="btnMy btnMy-intro" onClick={this.introSlide}>Start the game</button>
             </div>
         );
     }

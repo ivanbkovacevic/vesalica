@@ -25,7 +25,7 @@ componentWillMount() {
         return (
             <div id="message" className="message">
                 <span className={`message-icon ${this.props.hide}`}> 
-                   {this.props.message==='Pogodili ste slovo' ? <span>&#10004;</span> : <span>&#10006;</span> }
+                   {this.props.message==='Correct' ? <span>&#10004;</span> : <span>&#10006;</span> }
                 </span> 
             <div className="blink">{this.props.message}</div>
         </div>
