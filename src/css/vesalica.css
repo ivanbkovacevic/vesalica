@@ -25,8 +25,8 @@ body {
 ////////////////PRE SET/////////////////////////// */
 .btnMy {
   position: absolute;
-  bottom: -15%;
-  right: 30%;
+  bottom: -17%;
+  left: 30%;
   border: 1px dashed white;
   outline: none;
   background-color: rgba(255, 255, 255, 0.26);
@@ -40,10 +40,11 @@ body {
   @media (max-width: 767.98px) {
     .btnMy {
       font-size: 2rem;
-      bottom: -5%; } }
+      bottom: -15%;
+      left: 30%; } }
   @media (max-width: 575.98px) {
     .btnMy {
-      bottom: 20%;
+      bottom: -20%;
       transform: rotate(0deg); } }
   .btnMy-intro {
     width: 150px;
@@ -63,6 +64,16 @@ body {
   width: 50px;
   height: 50px;
   padding: 2px; }
+  @media (max-width: 767.98px) {
+    .slova {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px; } }
+  @media (max-width: 575.98px) {
+    .slova {
+      font-size: 1rem;
+      width: 30px;
+      height: 30px; } }
   .slova:hover {
     background-color: #ada3a3; }
 
@@ -75,6 +86,16 @@ body {
   width: 50px;
   height: 50px;
   padding: 2px; }
+  @media (max-width: 767.98px) {
+    .used {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px; } }
+  @media (max-width: 575.98px) {
+    .used {
+      font-size: 1rem;
+      width: 30px;
+      height: 30px; } }
 
 .container-btnLetters {
   min-width: 90%;
@@ -82,6 +103,9 @@ body {
   padding: 20px 30px;
   margin: 20px auto;
   text-align: center; }
+  @media (max-width: 575.98px) {
+    .container-btnLetters {
+      margin: 2px auto; } }
 
 .test {
   margin-top: -100px;
@@ -92,11 +116,21 @@ body {
   position: relative;
   background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");
   background-repeat: no-repeat;
-  min-height: 900px;
+  height: 750px;
   max-width: 100%;
   overflow: hidden;
   background-size: cover;
-  background-position: left; }
+  background-position: left;
+  border: 1px solid green; }
+  @media (max-width: 767.98px) {
+    .main-container {
+      font-size: 2rem;
+      height: 700px; } }
+  @media (max-width: 575.98px) {
+    .main-container {
+      font-size: 1.2rem;
+      margin: 2px auto;
+      height: 600px; } }
 
 .answerContainer {
   margin: 50px auto;
@@ -109,7 +143,8 @@ body {
       font-size: 2rem; } }
   @media (max-width: 575.98px) {
     .answerContainer {
-      font-size: 1.5rem; } }
+      font-size: 1.2rem;
+      margin: 2px auto; } }
 
 .message {
   color: #f2f2f2;
@@ -124,8 +159,9 @@ body {
       width: 300px; } }
   @media (max-width: 575.98px) {
     .message {
-      font-size: 1.5rem;
-      width: 200px; } }
+      font-size: 1.3rem;
+      width: 200px;
+      height: 55px; } }
   .message-icon {
     display: inline-block;
     margin-right: 10px;
@@ -143,113 +179,6 @@ body {
     opacity: 0.1; }
   100% {
     opacity: 1; } }
-
-.vesalo-container {
-  position: relative;
-  height: 500px;
-  min-width: 100%;
-  margin-top: 10px;
-  margin-right: 50px; }
-
-.vesalo-glava {
-  position: absolute;
-  left: 100px;
-  top: 30px;
-  background-color: transparent;
-  width: 100px;
-  height: 100px;
-  border: 3px solid #f2f2f2;
-  border-radius: 100%;
-  z-index: 10;
-  animation-name: pojavljivanje;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards; }
-
-.vesalo-torzo {
-  position: absolute;
-  left: 147px;
-  top: 127px;
-  background-color: #f2f2f2;
-  width: 5px;
-  height: 250px;
-  color: #f2f2f2;
-  animation-name: pojavljivanje;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards; }
-
-.vesalo-Lruka {
-  position: absolute;
-  left: 70px;
-  top: 123px;
-  background-color: #f2f2f2;
-  width: 5px;
-  height: 170px;
-  color: #f2f2f2;
-  transform: rotate(60deg);
-  transform-origin: 0%;
-  animation-name: pojavljivanjeL;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards; }
-
-.vesalo-Druka {
-  position: absolute;
-  left: 227px;
-  top: 126px;
-  background-color: #f2f2f2;
-  width: 5px;
-  height: 170px;
-  color: #f2f2f2;
-  transform: rotate(-60deg);
-  transform-origin: 0%;
-  animation-name: pojavljivanjeD;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards; }
-
-.vesalo-Lnoga {
-  position: absolute;
-  left: 70px;
-  top: 335px;
-  background-color: #f2f2f2;
-  width: 5px;
-  height: 170px;
-  color: #f2f2f2;
-  animation-name: pojavljivanjeL;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-  transform: rotate(40deg);
-  transform-origin: 0%; }
-
-.vesalo-Dnoga {
-  position: absolute;
-  left: 227px;
-  top: 339px;
-  background-color: #f2f2f2;
-  width: 5px;
-  height: 170px;
-  color: #f2f2f2;
-  animation-name: pojavljivanjeD;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-  transform: rotate(-40deg);
-  transform-origin: 0%; }
-
-@keyframes pojavljivanjeL {
-  0% {
-    transform: scale(0) rotateZ(0); }
-  100% {
-    transform: scale(1) rotateZ(60deg); } }
-
-@keyframes pojavljivanjeD {
-  0% {
-    transform: scale(0) rotateZ(0); }
-  100% {
-    transform: scale(1) rotateZ(-60deg); } }
-
-@keyframes pojavljivanje {
-  0% {
-    transform: scale(0); }
-  100% {
-    transform: scale(1); } }
 
 .container-crtice {
   height: 60px;
@@ -336,27 +265,24 @@ body {
         font-size: 1.5rem; } }
 
 .canvas {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  margin-right: 80px; }
+  width: 100%;
+  height: 100%; }
   @media (max-width: 767.98px) {
     .canvas {
-      width: 90%;
       margin-right: 40px; } }
   @media (max-width: 575.98px) {
     .canvas {
-      width: 90%;
       margin-right: 5px; } }
   .canvas-container {
-    position: relative;
-    margin-left: -50px;
-    width: 100%;
-    height: 600px;
+    margin-right: 40px;
+    height: 400px;
+    width: 266.66666px;
     border: 2px solid red; }
     @media (max-width: 767.98px) {
       .canvas-container {
-        height: 400px; } }
+        margin-right: 10px; } }
     @media (max-width: 575.98px) {
       .canvas-container {
-        height: 200px; } }
+        height: 300px;
+        width: 200px;
+        margin-right: 10px; } }

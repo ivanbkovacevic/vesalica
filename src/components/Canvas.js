@@ -23,7 +23,40 @@ state={
           ctx.strokeStyle = "white";
           ctx.lineWidth = 10;
           ctx.clearRect(0,0,400,600);
-        }   
+          this.animate();
+    }
+    componentWillReceiveProps(nextProps){
+      let {aCv,Tx1,Ty1,Tx2,Ty2,
+        LHx1,LHy1,LHx2,LHy2,
+        RHx1,RHy1,RHx2,RHy2,
+        LLx1,LLy1,LLx2,LLy2,
+        RLx1,RLy1,RLx2,RLy2,
+        sAv,eAv, WVx,WVy,WHx,WHy,Rx,Ry,dv5,dvY}=this.state;
+      if(nextProps.gameStarted!==this.props.gameStarted){
+      const ctx=this.refs.canvas.getContext("2d");
+        Clear(ctx);
+        console.log('updated');
+      
+        aCv=0;
+        Tx1=200;Ty1=205;Tx2=200;Ty2=205;
+        LHx1=200; LHy1=215; LHx2=200; LHy2=215;
+        RHx1=200; RHy1=215;  RHx2=200; RHy2=215;
+        LLx1=200;LLy1=400; LLx2=200;LLy2=400;
+        RLx1=200;RLy1=400; RLx2=200;RLy2=400;
+        sAv=180;
+        eAv=180;
+      //  WVx=0;WVy=600;WHx=0;WHy=0;
+      Rx=200;Ry=0;dvY=150;
+
+        this.setState({aCv,Tx1,Ty1,Tx2,Ty2,
+          LHx1,LHy1,LHx2,LHy2,
+          RHx1,RHy1,RHx2,RHy2,
+          LLx1,LLy1,LLx2,LLy2,
+          RLx1,RLy1,RLx2,RLy2,
+          sAv,eAv,
+           WVx,WVy,WHx,WHy,Rx,Ry,dvY,});
+      }
+    }
         animate=()=>{
           let {aCv,Tx1,Ty1,Tx2,Ty2,
             LHx1,LHy1,LHx2,LHy2,
@@ -31,6 +64,7 @@ state={
             LLx1,LLy1,LLx2,LLy2,
             RLx1,RLy1,RLx2,RLy2,
             sAv,eAv, WVx,WVy,WHx,WHy,Rx,Ry,dv5,dvY}=this.state;
+
             requestAnimationFrame(this.animate)
             console.log('animate');
             const ctx=this.refs.canvas.getContext("2d");
@@ -110,7 +144,7 @@ state={
                   }
                     RightLeg(ctx,RLx1,RLy1,RLx2,RLy2,);
 ///////////////////////////////////////////////////////////////
-                    if(this.props.drawCanvas){
+                 
                       if(WVy>0){
                         WVy-=10;  
                       }
@@ -121,29 +155,8 @@ state={
                         Ry+=4;
                       }
                       Wood(ctx,WVx,WVy,WHx,WHy,Rx,Ry);
-                    }
- /////////////////////////////////////////////////////////////////                  
-                    if(this.state.erase){//brisanje canvasa
-                      Clear(ctx);
-                      aCv=0;
-                      Tx1=200;Ty1=205;Tx2=200;Ty2=205;
-                      LHx1=200; LHy1=215; LHx2=200; LHy2=215;
-                      RHx1=200; RHy1=215;  RHx2=200; RHy2=215;
-                      LLx1=200;LLy1=400; LLx2=200;LLy2=400;
-                      RLx1=200;RLy1=400; RLx2=200;RLy2=400;
-                      sAv=180;
-                      eAv=180;
-                      WVx=0;WVy=600;WHx=0;WHy=0;Rx=200;Ry=0;dvY=150;
-
-                      this.setState({aCv,Tx1,Ty1,Tx2,Ty2,
-                        LHx1,LHy1,LHx2,LHy2,
-                        RHx1,RHy1,RHx2,RHy2,
-                        LLx1,LLy1,LLx2,LLy2,
-                        RLx1,RLy1,RLx2,RLy2,
-                        sAv,eAv,
-                         WVx,WVy,WHx,WHy,Rx,Ry,dvY,});
-                    }    
                     
+
                     this.setState({aCv,Tx1,Ty1,Tx2,Ty2,
                       LHx1,LHy1,LHx2,LHy2,
                       RHx1,RHy1,RHx2,RHy2,
@@ -151,26 +164,16 @@ state={
                       RLx1,RLy1,RLx2,RLy2,
                       sAv,eAv, 
                       WVx,WVy,WHx,WHy,Rx,Ry,dvY});
+ /////////////////////////////////////////////////////////////////     
+                                                 
 
-        }
-        DrawCanvas=()=>{
-          let {erase}=this.state;
-          erase=false;
-          this.setState({erase});
-               this.animate();
-        }
-        erase=()=>{   
-          let {erase}=this.state;
-          erase=true;
-          this.setState({erase});       
-         }
-        
+      }  
+      
       render() {
+    
         return(
           <div className="canvas-container">
-           <button className="btnMy" onClick={this.DrawCanvas}>DRRRRRRRRR</button>
-            <canvas className="canvas" ref="canvas" width={400} height={600} />
-            <button  className="test" onClick={this.erase}>KgkkkkkkkkkkkkKK</button>
+            <canvas className="canvas" ref="canvas" width={400} height={600} /> 
           </div>
         )
       }

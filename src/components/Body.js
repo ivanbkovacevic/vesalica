@@ -52,7 +52,6 @@ export  function LeftHand(ctx,x1,y1,x2,y2) {
   }
 
   export function Clear(ctx){
-   
     console.log('clerrrrrrrrrrrrrrrrrrr')
     return ctx.clearRect(0,0,400,600);    
    }

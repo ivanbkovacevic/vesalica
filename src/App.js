@@ -14,7 +14,7 @@ class App extends Component {
 state={
   gameStarted:false,
   gradoviSrbije:{
-    1:'ALEKSINAC',2:'BEOGRAD',3:'DIMITROVGRAD',4:'NOVI SAD',5:'ZRENjANIN',6:"PANČEVO",7:"VRŠAC",8:"ČAČAK",9:"KRAGUJEVAC",10:"NIŠ",
+    1:'ALEKSINAC',2:'BEOGRAD',3:'KLADOVO',4:'NOVI SAD',5:'ZRENjANIN',6:"PANČEVO",7:"VRŠAC",8:"ČAČAK",9:"KRAGUJEVAC",10:"NIŠ",
     11:"KRUŠEVAC",12:"SUBOTICA",13:"BEČEJ",14:"KIKINDA",15:"KRALjEVO",16:"VALjEVO",17:"SMEDEREVO",18:"PARAĆIN",19:"LESKOVAC",20:"APATIN"
   },
   zagRec:'',
@@ -204,10 +204,10 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     this.setState({letterG});
 
     if(missed==6){
-setTimeout(()=>{
-   this.setState({missed:7});
-},1000)
-    }
+      setTimeout(()=>{
+        this.setState({missed:7});
+      },1000)
+          }
 
 }
 
@@ -218,14 +218,15 @@ setTimeout(()=>{
    let correct=null;
    let correctUnder=null;
    let abc=null;
-   let fire=null;
    
     correct=correctLettArr.map((l,i)=>{
       return <span className='crtice'>{l}</span>
     })
 
     correctUnder=correctLettArr.map((l,i)=>{
-      return <span className='under'>{"_"}</span>
+    
+
+      return <span className='under'>{l===" " ? " " : "_"}</span>
     })
 
     abc=(
@@ -247,7 +248,7 @@ setTimeout(()=>{
           </div>
             </div>
         <div className="row">
-           <div className="col-xs-6 col-md-8">
+           <div className="col-xs-6 ">
          
           <Message hide={this.state.hide} message={this.state.message} />
                   <div className='answerContainer'>
@@ -256,8 +257,8 @@ setTimeout(()=>{
             <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
             <div className="container-crtice under-container">{correctUnder}</div>
            </div>
-           <div className="col-xs-6 col-md-4">
-             <Vesalo drawCanvas={this.state.gameStarted} 
+           <div className="col-xs-6 ">
+             <Vesalo gameStarted={this.state.gameStarted} 
              missed={this.state.missed}
              message={this.state.message}/> 
              
