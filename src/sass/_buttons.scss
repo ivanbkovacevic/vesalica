@@ -1,7 +1,7 @@
 .btnMy {
     position: absolute;
     bottom: -17%;
-   left:30%;
+    left:30%;
     border: 1px dashed white;
     outline: none;
     background-color: rgba(255, 255, 255, 0.26);
@@ -21,12 +21,13 @@
      @media (max-width: 575.98px) {
         bottom: -20%;
         transform: rotate(0deg);
+        left:0%;
      }
 
     &-intro{
         width: 150px;
         height: 90px;
-        top: 30%;
+        top: 50%;
         right: 10%;
     }
 
