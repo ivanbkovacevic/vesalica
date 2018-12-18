@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/vesalica/static/js/runtime~main.61eb54e5.js"
   },
   {
-    "revision": "a26a3216d34e9ef904a8",
-    "url": "/vesalica/static/js/main.a26a3216.chunk.js"
+    "revision": "ed3416f67455ec5087df",
+    "url": "/vesalica/static/js/main.ed3416f6.chunk.js"
   },
   {
     "revision": "157317520b0f04e6412c",
     "url": "/vesalica/static/js/1.15731752.chunk.js"
   },
   {
-    "revision": "a26a3216d34e9ef904a8",
-    "url": "/vesalica/static/css/main.212c775a.chunk.css"
+    "revision": "ed3416f67455ec5087df",
+    "url": "/vesalica/static/css/main.bed50338.chunk.css"
   },
   {
-    "revision": "3b17d9c58252fd4b3d6f0d68206bf2e6",
+    "revision": "23774b7bc31c4be7c448522fc6f773c7",
     "url": "/vesalica/index.html"
   }
 ];
