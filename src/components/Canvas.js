@@ -156,7 +156,6 @@ state={
                       }
                       Wood(ctx,WVx,WVy,WHx,WHy,Rx,Ry);
                     
-
                     this.setState({aCv,Tx1,Ty1,Tx2,Ty2,
                       LHx1,LHy1,LHx2,LHy2,
                       RHx1,RHy1,RHx2,RHy2,
@@ -165,12 +164,8 @@ state={
                       sAv,eAv, 
                       WVx,WVy,WHx,WHy,Rx,Ry,dvY});
  /////////////////////////////////////////////////////////////////     
-                                                 
-
-      }  
-      
+      }       
       render() {
-    
         return(
           <div className="canvas-container">
             <canvas className="canvas" ref="canvas" width={400} height={600} /> 

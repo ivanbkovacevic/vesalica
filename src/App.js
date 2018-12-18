@@ -9,6 +9,7 @@ import Intro from './components/Intro';
 import Vesalo from './components/Vesalo';
 import Message from './components/Message';
 import axios from 'axios';
+import removeAccents from 'remove-accents';
 import LettersToBeGuessed from './components/LettersToBeGuessed';
 class App extends Component {
 
@@ -72,7 +73,7 @@ componentDidMount(){
     }
   
     let zagIndex= Math.floor(Math.random()*worldCityes.length)+1;
-  //  zagRec=worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
+    zagRec=worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
     
     zagRecCountry=worldCityes[zagIndex].country; //nasumično uzimamo gradove iz objekta
     console.log(zagRec+' zag rec');
@@ -95,31 +96,31 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     hide='none';
     remove='none';
     let worldCityesLength=worldCityes.length;
-    console.log(worldCityesLength);
-    console.log(gradoviSrbije);
 
-    let zagIndex= Math.floor(Math.random()*worldCityes.length)+1;
+    let zagIndex= Math.floor(Math.random()*worldCityesLength)+1;
     zagRec=worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
     zagRecCountry=worldCityes[zagIndex].country; //nasumično uzimamo gradove iz objekta
-    zagRec='jedan dva tri';
-    console.log(zagRec+'yagrec');
-  
+    zagRec = removeAccents(zagRec);// sredjivanje specijalnih karaktera
+ 
+console.log(zagRec); // AAAAAA
     this.setState({zagRec,worldCityes,zagRecCountry});
-    console.log(zagRec);
+  
     zagRecLength= zagRec.length;//dužina nam treba da bismo proveravali da li je doslo do pobede ili poraza kao i za crtanje
-    console.log( zagRecLength);
     zagRec=zagRec.toUpperCase();
     zagRecArr = Array.from(zagRec);// pravljenje array od reci jer treba manipulisati sa tim array
     zagRecArrChecking=[...zagRecArr];//array koji sluzi za proveru da li su sva slova pogodjena tj.  registruje da li su sva slova(i duplikati) upisani
   
-    for(let c in zagRecArr){ // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu
-     
-      if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
-       correctLettArr.push(' ');
+    for(let c in zagRecArr){ // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu    
+      if(zagRecArrChecking[c]===' '){// ovo mora da bi broj pogodatak za pobedu odgovarao broju slova u reci
        zagRecArrChecking.splice(c,1);
        zagRecLength--;
+       this.setState({zagRecArrChecking})
+      }
+
+      if(zagRecArr[c]===' '){// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
+        correctLettArr.push(' ');
       }else{
-       correctLettArr.push('_')
+        correctLettArr.push('_');
       }
     }
 
@@ -173,8 +174,6 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
     letterG=letterG.toUpperCase();
     abeceda[i].clicked=true;
     this.setState({abeceda,hide});
-
-   
 
     for(let w in zagRecArr ){ //prolazenje kroz arr reci i cekiranje da li se neki elemenat arr poklapa sa guessovanim slovom
       if(zagRecArr[w]===letterG){

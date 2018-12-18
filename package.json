@@ -12,6 +12,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4",
+    "remove-accents": "^0.4.2",
     "save": "^2.3.2",
     "upper-case": "^1.1.3"
   },
