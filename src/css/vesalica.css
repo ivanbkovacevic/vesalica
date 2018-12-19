@@ -195,9 +195,6 @@ body {
 
 .crtice {
   display: inline-block;
-  animation-name: pojavljivanje;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
   width: 10%; }
   @media (max-width: 767.98px) {
     .crtice {

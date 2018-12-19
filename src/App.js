@@ -235,8 +235,8 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
     return (
         <div className="main-container">
-            <Intro remove={this.state.remove} 
-              started={this.state.gameStarted} />
+            {/* <Intro remove={this.state.remove} 
+              started={this.state.gameStarted} /> */}
             <div className="row">
             <div className="container-btnLetters">
              { this.state.gameStarted ?   <div>{abc}</div> : null }
@@ -251,12 +251,13 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
                    {this.state.showWord ? <div>Mistery word was : {this.state.zagRec}</div> : null}
                   </div>
             <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
-            <div className="container-crtice under-container">{correctUnder}</div>
+            {/* <div className="container-crtice under-container">{correctUnder}</div> */}
            </div>
            <div className="col-xs-6 ">
              <Vesalo gameStarted={this.state.gameStarted} 
              missed={this.state.missed}
-             message={this.state.message}/> 
+             message={this.state.message}
+             bingo={this.state.bingo}/> 
              
              <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}
             </button>    

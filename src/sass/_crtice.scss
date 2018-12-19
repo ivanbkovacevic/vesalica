@@ -3,15 +3,11 @@
     width: 90%;
     text-align: center;
     margin: 0 auto;
-
-   
+ 
 }
 
 .crtice{
     display: inline-block;
-    animation-name: pojavljivanje;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
     width: 10%;
     @media (max-width: 767.98px) {
         font-size: 2rem;
@@ -31,6 +27,8 @@
     color: $color-back;
     font-size: 4rem;
     letter-spacing: 1rem;
+  
+  
 }
 
 }
