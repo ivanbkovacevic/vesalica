@@ -16,10 +16,6 @@ class App extends Component {
 state={
   gameStarted:false,
   worldCityes:[],
-  gradoviSrbije:{
-    1:'ALEKSINAC',2:'BEOGRAD',3:'KLADOVO',4:'NOVI SAD',5:'ZRENjANIN',6:"PANČEVO",7:"VRŠAC",8:"ČAČAK",9:"KRAGUJEVAC",10:"NIŠ",
-    11:"KRUŠEVAC",12:"SUBOTICA",13:"BEČEJ",14:"KIKINDA",15:"KRALjEVO",16:"VALjEVO",17:"SMEDEREVO",18:"PARAĆIN",19:"LESKOVAC",20:"APATIN"
-  },
   zagRec:'',
   zagRecCountry:'',
   showWord:false,
@@ -27,15 +23,6 @@ state={
   zagRecArr:[],
   zagRecArrChecking:[],
   correctLettArr:[],
-  // azbuka:[
-  // {id:0,value:"A",clicked:false},{id:1,value:"B",clicked:false},{id:2,value:"C",clicked:false},{id:3,value:"D",clicked:false},
-  // {id:4,value:"E",clicked:false},{id:5,value:"F",clicked:false},{id:6,value:"G",clicked:false},{id:7,value:"H",clicked:false},
-  // {id:8,value:"I",clicked:false},{id:9,value:"J",clicked:false},{id:10,value:"K",clicked:false},{id:11,value:"L",clicked:false},
-  // {id:12,value:"M",clicked:false},{id:13,value:"N",clicked:false},{id:14,value:"O",clicked:false},{id:15,value:"P",clicked:false},
-  // {id:16,value:"R",clicked:false},{id:17,value:"S",clicked:false},{id:18,value:"T",clicked:false},{id:19,value:"U",clicked:false},
-  // {id:20,value:"V",clicked:false},{id:21,value:"Ć",clicked:false},{id:22,value:"Č",clicked:false},{id:23,value:"Đ",clicked:false},
-  // {id:24,value:"DŽ",clicked:false},{id:25,value:"LJ",clicked:false},{id:26,value:"NJ",clicked:false},{id:27,value:"Z",clicked:false},
-  // {id:28,value:"Ž",clicked:false},{id:29,value:"Š",clicked:false}],
    abeceda:[
   {id:0,value:"A",clicked:false},{id:1,value:"B",clicked:false},{id:2,value:"C",clicked:false},{id:3,value:"D",clicked:false},
   {id:4,value:"E",clicked:false},{id:5,value:"F",clicked:false},{id:6,value:"G",clicked:false},{id:7,value:"H",clicked:false},
@@ -54,9 +41,6 @@ state={
   status:'',
   hide:'none',
   remove:'',
-  gradoviFirebase:[],
-  dataReady:false
-  
 }
 
 componentDidMount(){
@@ -72,13 +56,8 @@ componentDidMount(){
         }  
     }
   
-    let zagIndex= Math.floor(Math.random()*worldCityes.length)+1;
-    zagRec=worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
-    
-    zagRecCountry=worldCityes[zagIndex].country; //nasumično uzimamo gradove iz objekta
-    console.log(zagRec+' zag rec');
-    console.log(response);
     this.setState({zagRec,worldCityes,zagRecCountry});
+   
   })
   .catch(function (error) {
     console.log(error);
@@ -88,7 +67,7 @@ componentDidMount(){
 
 generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
   let {zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,zagRecArrChecking,
-       gradoviSrbije,gameStarted,btnMsg,abeceda,hide,remove,worldCityes,zagRecCountry}=this.state;
+  gameStarted,btnMsg,abeceda,hide,remove,worldCityes,zagRecCountry}=this.state;
  
   if(!gameStarted){
     gameStarted=!gameStarted;
@@ -100,9 +79,11 @@ generateWord=()=>{ // kreira rec...i kreira crtice za slova i pravi nekoliko arr
     let zagIndex= Math.floor(Math.random()*worldCityesLength)+1;
     zagRec=worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
     zagRecCountry=worldCityes[zagIndex].country; //nasumično uzimamo gradove iz objekta
+      zagRecCountry=zagRecCountry.toUpperCase();
+
     zagRec = removeAccents(zagRec);// sredjivanje specijalnih karaktera
  
-console.log(zagRec); // AAAAAA
+    console.log(zagRec+' REC'); // AAAAAA
     this.setState({zagRec,worldCityes,zagRecCountry});
   
     zagRecLength= zagRec.length;//dužina nam treba da bismo proveravali da li je doslo do pobede ili poraza kao i za crtanje
@@ -123,7 +104,6 @@ console.log(zagRec); // AAAAAA
         correctLettArr.push('_');
       }
     }
-
 
     this.setState({zagRec,zagRecLength,zagRecArr,correctLettArr,notMatch,
           zagRecArrChecking,gameStarted,btnMsg,hide,remove});
@@ -162,12 +142,12 @@ console.log(zagRec); // AAAAAA
 GuessingLetter=(s,i)=>{ // igrac pogadja rec...
   let {letterG,zagRecArr,zagRecArrChecking,zagRec,message,correctLettArr,bingo,
        zagRecLength,showWord,notMatch,missed,abeceda,hide}=this.state;
-  abeceda=abeceda.slice();
-  zagRecArr=zagRecArr.slice();
-  zagRecArrChecking=zagRecArrChecking.slice();
-  correctLettArr=correctLettArr.slice();//array koji hvata tacna slova  tj pogotke
-  hide='';
- 
+      abeceda = abeceda.slice();
+      zagRecArr = zagRecArr.slice();
+      zagRecArrChecking = zagRecArrChecking.slice();
+      correctLettArr = correctLettArr.slice(); //array koji hvata tacna slova  tj pogotke
+      hide = '';
+     
     letterG = s;// hvatanje slova kliknutog slova
     console.log(s);
     
@@ -180,10 +160,8 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
         correctLettArr[w]=letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mozda je moglo da se nazove i displayedLettArr
         message='Correct';
         this.setState({correctLettArr,message});
-      }
-      
+      }    
   }
-
 
   for(let ww in zagRecArrChecking ){ //cekiranje pogodatak i dobijanje da li pobeda ili ne
     let double=Number(ww)+1;
@@ -200,16 +178,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
       bingo++;
       this.setState({zagRecArrChecking,bingo});
     }
-     
-      
-    
-   
-    console.log('dupla slova '+zagRecArrChecking[double]);
-    console.log('sta je '+double)
-    console.log('dupla slovafbvegbe '+zagRecArrChecking[2])
-  
 }
-
 
    notMatch=zagRec.includes(letterG);//primenjivanje gornje funkcije na svaki elemenat u nizu
      if(!notMatch){//ako je true dodavanje poena u missed  i ispisavanje poruke
@@ -219,7 +188,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
      }
 
       if(bingo===zagRecLength){ //pronaslo se tacno resenje 
-        message='Bravo! You find correct word';
+        message='Bravo! You fiNd correct word';
         hide='none';
         this.setState({message,hide})
       }
@@ -238,9 +207,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
         this.setState({missed:7});
       },1000)
           }
-
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
   render() {

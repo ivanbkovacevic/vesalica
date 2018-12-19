@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import image from '../assets/img/download.jpg';
+import img from '../assets/img/chalk1.png';
+import audio from "../assets/audio/ChalkCrop.mp3";
 import {LeftHand,RightHand,Torzo,LeftLeg,RightLeg,Head,Clear} from './Body';
 import {Wood} from './Wood';
+import {PlayAudio,PauseAudio} from './utility';
  
 class Canvas extends Component {
 state={
@@ -19,10 +21,8 @@ state={
 
   }
     componentDidMount() {
-          const ctx=this.refs.canvas.getContext("2d");
-          ctx.strokeStyle = "white";
-          ctx.lineWidth = 10;
-          ctx.clearRect(0,0,400,600);
+     let myAudio=this.refs.myAudio;
+      PlayAudio(myAudio);
           this.animate();
     }
     componentWillReceiveProps(nextProps){
@@ -32,11 +32,10 @@ state={
         LLx1,LLy1,LLx2,LLy2,
         RLx1,RLy1,RLx2,RLy2,
         sAv,eAv, WVx,WVy,WHx,WHy,Rx,Ry,dv5,dvY}=this.state;
+
       if(nextProps.gameStarted!==this.props.gameStarted){
       const ctx=this.refs.canvas.getContext("2d");
         Clear(ctx);
-        console.log('updated');
-      
         aCv=0;
         Tx1=200;Ty1=205;Tx2=200;Ty2=205;
         LHx1=200; LHy1=215; LHx2=200; LHy2=215;
@@ -45,7 +44,6 @@ state={
         RLx1=200;RLy1=400; RLx2=200;RLy2=400;
         sAv=180;
         eAv=180;
-      //  WVx=0;WVy=600;WHx=0;WHy=0;
       Rx=200;Ry=0;dvY=150;
 
         this.setState({aCv,Tx1,Ty1,Tx2,Ty2,
@@ -56,7 +54,13 @@ state={
           sAv,eAv,
            WVx,WVy,WHx,WHy,Rx,Ry,dvY,});
       }
+      if(nextProps.miss1!==this.props.miss1){
+        let myAudio=this.refs.myAudio;
+        console.log('missed for ausio')
+        PlayAudio(myAudio);
+      }
     }
+
         animate=()=>{
           let {aCv,Tx1,Ty1,Tx2,Ty2,
             LHx1,LHy1,LHx2,LHy2,
@@ -66,11 +70,13 @@ state={
             sAv,eAv, WVx,WVy,WHx,WHy,Rx,Ry,dv5,dvY}=this.state;
 
             requestAnimationFrame(this.animate)
-            console.log('animate');
-            const ctx=this.refs.canvas.getContext("2d");
-            ctx.strokeStyle = "white";
+            let image = new Image();
+            const ctx = this.refs.canvas.getContext("2d");
             ctx.lineWidth = 10;
-            ctx.clearRect(0,0,400,600);
+            image.src = img;
+            let imgPattern = ctx.createPattern(image, "repeat");
+            ctx.strokeStyle = imgPattern;
+            ctx.clearRect(0, 0, 400, 600);
 /////////////////////////////////////////////////////////////////////////
             let sA=Math.radians = function(degrees) {
                  return degrees * Math.PI / 180;
@@ -164,10 +170,12 @@ state={
                       sAv,eAv, 
                       WVx,WVy,WHx,WHy,Rx,Ry,dvY});
  /////////////////////////////////////////////////////////////////     
-      }       
+      }    
+
       render() {
         return(
           <div className="canvas-container">
+          <audio ref="myAudio"><source src={audio} type="audio/mpeg"></source></audio>
             <canvas className="canvas" ref="canvas" width={400} height={600} /> 
           </div>
         )

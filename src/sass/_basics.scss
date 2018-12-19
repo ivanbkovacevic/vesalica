@@ -4,8 +4,8 @@
   //    "compile:sass":"node-sass ./src/sass/main.scss  ./src/css/connect_4.css -w",  
 
   @font-face {
-    font-family: 'IMMORTAL';
-    src: local('IMMORTAL'), url(../assets/fonts/IMMORTAL.ttf) format('woff');
+    font-family: 'Eraser';
+    src: local('Eraser'), url(../assets/fonts/Eraser.ttf) format('woff');
   }
  
 * {
@@ -26,12 +26,11 @@ html {
 
 body {
    
-    font-family: 'IMMORTAL', sans-serif;
+    font-family: 'Eraser', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     background-color: white;
 
 }
-
 /* 
 ////////////////PRE SET/////////////////////////// */

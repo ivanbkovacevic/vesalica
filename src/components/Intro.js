@@ -11,8 +11,8 @@ class Intro extends Component {
     render() {       
         return (
             <div id="introContainer" className="intro-container">
-                <h1>Welcome to the game - Vešalica</h1>
-                 <p>Goal of the game is to gues capital cityes of Europe</p>          
+                <h1>Welcome to the game - Veshalica</h1>
+                 <p>Goal of the game is to guess capital cities of Europe</p>          
                  <button className="btnMy btnMy-intro" onClick={this.introSlide}>Start the game</button>
             </div>
         );
