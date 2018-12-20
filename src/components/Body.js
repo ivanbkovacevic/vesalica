@@ -1,5 +1,5 @@
 export  function LeftHand(ctx,x1,y1,x2,y2,bx,by) {
-    let lh=null;
+    let lh={};
    return  lh ={1:ctx.beginPath(),
    2:ctx.moveTo(x1,y1),// ruka levo pocetak
    3:ctx.quadraticCurveTo(bx,by,x2,y2),
@@ -48,6 +48,30 @@ export  function LeftHand(ctx,x1,y1,x2,y2,bx,by) {
     3:ctx.lineWidth = 10,
     4:ctx.fillStyle = "transparent",
     5:ctx.stroke(),
+   }
+  }
+
+  export  function EyeLeft(ctx,LeftEye) {
+    let rl=null;
+   return  rl ={ 1:ctx.beginPath(),
+    2:ctx.moveTo(LeftEye.beginx1,LeftEye.beginy1),// oko levo
+    3:ctx.lineWidth=4,
+    4:ctx.lineTo(LeftEye.endx1,LeftEye.endy1),
+    5:ctx.moveTo(LeftEye.beginx2,LeftEye.beginy2),// oko levo
+    6:ctx.lineTo(LeftEye.endx2,LeftEye.endy2),
+    7:ctx.stroke()
+   }
+  }
+
+  export  function EyeRight(ctx,RightEye) {
+    let rl=null;
+   return  rl ={ 1:ctx.beginPath(),
+    2:ctx.moveTo(RightEye.beginx1,RightEye.beginy1),// oko levo
+    3:ctx.lineWidth=4,
+    4:ctx.lineTo(RightEye.endx1,RightEye.endy1),
+    5:ctx.moveTo(RightEye.beginx2,RightEye.beginy2),// oko levo
+    6:ctx.lineTo(RightEye.endx2,RightEye.endy2),
+    7:ctx.stroke()
    }
   }
 

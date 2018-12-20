@@ -190,14 +190,20 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
       if(bingo===zagRecLength){ //pronaslo se tacno resenje 
         message='Bravo! You fiNd correct word';
         hide='none';
-        this.setState({message,hide})
+        for(let i in abeceda ){
+          abeceda[i].clicked=true;
+       }
+        this.setState({message,hide,abeceda})
       }
 
       if(missed===6 ){ //missed se dobija kada slovo nije matchovano
         message='You lost the game';
         hide='none';
         showWord=true;
-        this.setState({message,hide,showWord})
+        for(let i in abeceda ){
+           abeceda[i].clicked=true;
+        }
+        this.setState({message,hide,showWord,abeceda})
       }
 
     this.setState({letterG});
@@ -206,7 +212,11 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
       setTimeout(()=>{
         this.setState({missed:7});
       },1000)
-          }
+          
+          setTimeout(()=>{
+            this.setState({missed:8});
+          },1500)
+        };
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -244,14 +254,13 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
             </div>
         <div className="row">
            <div className="col-xs-6 ">
-         
+           
           <Message hide={this.state.hide} message={this.state.message} />
                   <div className='answerContainer'>
                    {this.state.gameStarted ?<div>Capital of  {this.state.zagRecCountry}</div>:null} 
                    {this.state.showWord ? <div>Mistery word was : {this.state.zagRec}</div> : null}
                   </div>
-            <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
-            {/* <div className="container-crtice under-container">{correctUnder}</div> */}
+                  <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}</button>    
            </div>
            <div className="col-xs-6 ">
              <Vesalo gameStarted={this.state.gameStarted} 
@@ -259,10 +268,15 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
              message={this.state.message}
              bingo={this.state.bingo}/> 
              
-             <button className="btnMy" onClick={this.generateWord}>{this.state.btnMsg}
-            </button>    
+           
            </div>
-        </div>
+           </div>
+           <div className="row">
+           <div className="col-xs-12 ">
+           <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
+           </div>
+           </div>
+        
       </div>      
     );
   }

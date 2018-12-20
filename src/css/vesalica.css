@@ -24,9 +24,9 @@ body {
 /* 
 ////////////////PRE SET/////////////////////////// */
 .btnMy {
-  position: absolute;
-  bottom: -4%;
-  left: 60%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
   border: 1px dashed white;
   outline: none;
   background-color: rgba(255, 255, 255, 0.26);
@@ -34,23 +34,28 @@ body {
   font-size: 2.3rem;
   width: 150px;
   padding: 5px;
-  transform: rotate(330deg);
   transition: all 0.5s;
   z-index: 89; }
+  @media (max-width: 1300px) {
+    .btnMy {
+      margin-left: 50%;
+      transform: translateX(-50%); } }
   @media (max-width: 991.98px) {
     .btnMy {
-      bottom: -4%;
-      left: 50%; } }
+      margin-left: 50%;
+      transform: translateX(-50%); } }
   @media (max-width: 767.98px) {
     .btnMy {
       font-size: 2rem;
-      bottom: -15%;
-      left: 30%; } }
+      margin-left: 50%;
+      transform: translateX(-50%);
+      width: 120px; } }
   @media (max-width: 575.98px) {
     .btnMy {
-      bottom: -20%;
-      transform: rotate(0deg);
-      left: 0%; } }
+      margin-left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.7rem;
+      width: 100px; } }
   .btnMy-intro {
     width: 150px;
     height: 90px;
@@ -106,7 +111,7 @@ body {
   min-width: 90%;
   min-height: 120px;
   padding: 20px 30px;
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center; }
   @media (max-width: 575.98px) {
     .container-btnLetters {
@@ -118,31 +123,27 @@ body {
   height: 100px; }
 
 .main-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-image: url("../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png");
   background-repeat: no-repeat;
-  height: 938px;
-  max-width: 100%;
   overflow: hidden;
   background-size: cover;
-  background-position: left; }
-  @media (max-width: 991.98px) {
-    .main-container {
-      height: 723px; } }
+  background-position: bottom left; }
   @media (max-width: 767.98px) {
     .main-container {
-      font-size: 2rem;
-      height: 700px; } }
+      font-size: 2rem; } }
   @media (max-width: 575.98px) {
     .main-container {
-      font-size: 1.2rem;
-      margin: 2px auto;
-      height: 600px; } }
+      font-size: 1.2rem; } }
 
 .answerContainer {
   margin: 50px auto;
   height: 90px;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   color: #f2f2f2; }
   @media (max-width: 767.98px) {
@@ -151,18 +152,18 @@ body {
   @media (max-width: 575.98px) {
     .answerContainer {
       font-size: 1.2rem;
-      margin: 2px auto; } }
+      margin: 60px auto; } }
 
 .message {
   color: #f2f2f2;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   height: 105px;
   width: 400px;
-  margin: 50px auto; }
+  margin: 10px auto; }
   @media (max-width: 767.98px) {
     .message {
-      font-size: 2rem;
+      font-size: 1.5rem;
       width: 300px; } }
   @media (max-width: 575.98px) {
     .message {
@@ -189,9 +190,10 @@ body {
 
 .container-crtice {
   height: 60px;
-  width: 90%;
+  width: 100%;
   text-align: center;
-  margin: 0 auto; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 .crtice {
   display: inline-block;
@@ -199,48 +201,19 @@ body {
   @media (max-width: 767.98px) {
     .crtice {
       font-size: 2rem;
-      letter-spacing: 0.6rem; } }
+      letter-spacing: 0.4rem; } }
   @media (max-width: 575.98px) {
     .crtice {
       font-size: 1rem;
-      letter-spacing: 0.3rem; } }
+      letter-spacing: 0.2rem; } }
 
 .letters {
   color: #f2f2f2;
   font-size: 1.3rem; }
   .letters-zagonetka {
     color: #f2f2f2;
-    font-size: 4rem;
+    font-size: 3rem;
     letter-spacing: 1rem; }
-
-.under-container {
-  margin-top: -57px;
-  height: 10px; }
-  @media (max-width: 767.98px) {
-    .under-container {
-      margin-top: -37px; } }
-  @media (max-width: 575.98px) {
-    .under-container {
-      margin-top: -30px; } }
-
-.under {
-  display: inline-block;
-  animation-name: pojavljivanje;
-  animation-duration: 1.2s;
-  animation-fill-mode: forwards;
-  width: 10%;
-  height: 10px;
-  color: white;
-  font-size: 4rem;
-  letter-spacing: 1rem; }
-  @media (max-width: 767.98px) {
-    .under {
-      font-size: 2rem;
-      letter-spacing: 0.6rem; } }
-  @media (max-width: 575.98px) {
-    .under {
-      font-size: 1rem;
-      letter-spacing: 0.3rem; } }
 
 .intro-container {
   position: absolute;
@@ -279,16 +252,21 @@ body {
       margin-right: 5px; } }
   .canvas-container {
     margin-right: 40px;
-    height: 600px;
-    width: 400px; }
+    height: 500px;
+    width: 300px; }
+    @media (max-width: 1300px) {
+      .canvas-container {
+        height: 350px;
+        width: 240px;
+        margin-right: 10px; } }
     @media (max-width: 998.98px) {
       .canvas-container {
-        height: 500px;
-        width: 350.66666px;
+        height: 350px;
+        width: 240px;
         margin-right: 10px; } }
     @media (max-width: 767.98px) {
       .canvas-container {
-        height: 400px;
+        height: 350px;
         width: 266.66666px;
         margin-right: 10px; } }
     @media (max-width: 575.98px) {

@@ -1,8 +1,9 @@
 .container-crtice{
     height: 60px;
-    width: 90%;
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
  
 }
 
@@ -11,11 +12,11 @@
     width: 10%;
     @media (max-width: 767.98px) {
         font-size: 2rem;
-        letter-spacing: 0.6rem;
+        letter-spacing: 0.4rem;
      }
      @media (max-width: 575.98px) {
         font-size: 1rem;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.2rem;
      }
 }
 
@@ -25,7 +26,7 @@
 
    &-zagonetka{
     color: $color-back;
-    font-size: 4rem;
+    font-size: 3rem;
     letter-spacing: 1rem;
   
   
@@ -33,34 +34,4 @@
 
 }
 
-.under-container{
-    margin-top:-57px;
-    height:10px;
-    @media (max-width: 767.98px) {
-        margin-top:-37px;
-     }
-     @media (max-width: 575.98px) {
-          margin-top:-30px;     
-     }
-}
 
-.under{
-    display: inline-block;
-    animation-name: pojavljivanje;
-    animation-duration: 1.2s;
-    animation-fill-mode: forwards;
-    width: 10%;
-    height: 10px;
-    color:white;
-    font-size: 4rem;
-    letter-spacing: 1rem;
-
-    @media (max-width: 767.98px) {
-        font-size: 2rem;
-        letter-spacing: 0.6rem;
-     }
-     @media (max-width: 575.98px) { 
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-     }
-}

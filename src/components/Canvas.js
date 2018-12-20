@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import img from '../assets/img/chalk1.png';
 import audio from "../assets/audio/ChalkCrop.mp3";
-import {LeftHand,RightHand,Torzo,LeftLeg,RightLeg,Head,Clear,HeadTest} from './Body';
+import {LeftHand,RightHand,Torzo,LeftLeg,RightLeg,Head,Clear,HeadTest,EyeLeft,EyeRight} from './Body';
 import {Wood} from './Wood';
 import {PlayAudio,PauseAudio} from './utility';
  
@@ -28,7 +28,30 @@ state={
   HeadLeft:{x1:200,y1:100,
             bx1:200,by1:100,
             bx2:200,by2:100,
-            x2:200,y2:100}
+            x2:200,y2:100},
+
+            LeftEye:{
+              beginx1:182,
+              beginy1:135,
+              endx1:182,
+              endy1:135,
+
+              beginx2:168,
+              beginy2:135,
+              endx2:168,
+              endy2:135
+            },
+            RightEye:{
+              beginx1:222,
+              beginy1:135,
+              endx1:222,
+              endy1:135,
+
+              beginx2:208,
+              beginy2:135,
+              endx2:208,
+              endy2:135
+            }
 
   }
     componentDidMount() {
@@ -47,7 +70,7 @@ state={
         WHx,WHy,    WHbx,WHby,
         Rx,Ry,
         dv5,dvY,
-        dirChange,HeadRight,HeadLeft}=this.state;
+        dirChange,HeadRight,HeadLeft,LeftEye,RightEye}=this.state;
 
       if(nextProps.gameStarted!==this.props.gameStarted){
       const ctx=this.refs.canvas.getContext("2d");
@@ -71,7 +94,30 @@ state={
          HeadLeft={x1:200,y1:100,
          bx1:200,by1:100,
          bx2:200,by2:100,
-         x2:200,y2:100}
+         x2:200,y2:100};
+
+         LeftEye={
+          beginx1:182,
+          beginy1:135,
+          endx1:182,
+          endy1:135,
+
+          beginx2:168,
+          beginy2:135,
+          endx2:168,
+          endy2:135
+        }
+        RightEye={
+          beginx1:222,
+          beginy1:135,
+          endx1:222,
+          endy1:135,
+
+          beginx2:208,
+          beginy2:135,
+          endx2:208,
+          endy2:135
+        }
 
         this.setState({aCv,Tx1,Ty1,Tx2,Ty2,  Tbx,Tby,
         LHx1,LHy1,LHx2,LHy2,  LHbx,LHby,
@@ -83,7 +129,7 @@ state={
         WHx,WHy,   WHbx,WHby,
         Rx,Ry,
         dirChange,
-        dvY,HeadRight,HeadLeft});
+        dvY,HeadRight,HeadLeft,LeftEye,RightEye});
       }
       if(nextProps.miss1!==this.props.miss1){
         let myAudio=this.refs.myAudio;      
@@ -104,8 +150,8 @@ state={
             sAv,eAv, 
             WVx,WVy,    WVbx,WVby,
             WHx,WHy,    WHbx,WHby,
-            Rx,Ry,dirChange,
-            dv5,dvY,HeadRight,HeadLeft}=this.state;
+            Rx,Ry,dirChange,LeftEye,
+            dv5,dvY,HeadRight,HeadLeft,RightEye}=this.state;
 
             requestAnimationFrame(this.animate)
             let image = new Image();
@@ -152,7 +198,7 @@ state={
                 }
                 
                
-              }else if(this.props.miss1>6  && HeadLeft.y1<700 ){
+              }else if(this.props.miss1>7  && HeadLeft.y1<700 ){
                 HeadLeft.y1+=dv5;
                 HeadRight.y1+=dv5;
                 HeadLeft.y2+=dv5;
@@ -170,9 +216,9 @@ state={
              if(this.props.miss1>1){
               if(Ty2<400){
                 Ty2+=5;
-                Tbx=220;
+                Tbx=210;
                Tby=300;
-              }else if(this.props.miss1>6 && Ty1<700){
+              }else if(this.props.miss1>7 && Ty1<700){
                 Ty1+=dv5;
                 Ty2+=dv5;
                 Tby+=dv5;
@@ -185,7 +231,7 @@ state={
                 LHby=220;
                 LHx2-=5;
                 LHy2+=5;
-              }else if(this.props.miss1>6 && LHy1<700){
+              }else if(this.props.miss1>7 && LHy1<700){
                 LHy1+=dv5;
                 LHy2+=dv5;    
                 LHby+=dv5;
@@ -198,7 +244,7 @@ state={
                   RHby=270;
                   RHx2+=5;
                   RHy2+=5;
-                }else if(this.props.miss1>6 && RHy1<700){
+                }else if(this.props.miss1>7 && RHy1<700){
                   RHy1+=dv5;
                   RHy2+=dv5;
                   RHby+=dv5;
@@ -213,7 +259,7 @@ state={
 
                     LLx2-=5;
                     LLy2+=5;
-                  }else if(this.props.miss1>6 && LLy1<700){
+                  }else if(this.props.miss1>7 && LLy1<700){
                     LLy1+=dv5;
                     LLy2+=dv5;
                     LLby+=dv5;
@@ -228,13 +274,42 @@ state={
 
                       RLx2+=5;
                       RLy2+=5;
-                    }else if(this.props.miss1>6 && RLy1<700){                 
+                    }else if(this.props.miss1>7 && RLy1<700){                 
                         RLy1+=dv5;
                         RLy2+=dv5; 
                         RLby+=dv5;
                     }
                   }
                     RightLeg(ctx,RLx1,RLy1,RLx2,RLy2,RLbx,RLby); 
+                    ///////////////////////////////////////////////////
+                    if(this.props.miss1===7){
+                      LeftEye.endx1=168;
+                      LeftEye.endy1=147;
+
+                      LeftEye.endx2=182;
+                      LeftEye.endy2=147;
+
+                      RightEye.endx1=208;
+                      RightEye.endy1=147;
+                      RightEye.endx2=222;
+                      RightEye.endy2=147;
+                      console.log('uivdhuvhudshuhuhuhuhuhuhuhuhuhuuhuhuhu')
+                    }else if(this.props.miss1===8 &&  LeftEye.beginy1<700 ){  
+                     
+                      LeftEye.beginy1+=5;                    
+                      LeftEye.beginy2+=5;                    
+                      LeftEye.endy1+=5;                   
+                      LeftEye.endy2+=5;
+                    
+                      RightEye.beginy1+=5; 
+                      RightEye.beginy2+=5; 
+                      RightEye.endy1+=5;
+                      RightEye.endy2+=5;
+                      console.log('uivdhuvhudshuhuhuhuhuhuhuhuhuhuuhuhuhu')
+                    }
+                  
+                    EyeLeft(ctx,LeftEye);
+                    EyeRight(ctx,RightEye);
 ///////////////////////////////////////////////////////////////
                  
                       if(WVy>0){
@@ -263,7 +338,7 @@ state={
                       WVx,WVy,    WVbx,WVby,
                       WHx,WHy,    WHbx,WHby,
                       Rx,Ry,dirChange,
-                      dvY,HeadRight,HeadLeft});
+                      dvY,HeadRight,HeadLeft,LeftEye,RightEye});
  /////////////////////////////////////////////////////////////////     
       }    
 

@@ -1,52 +1,52 @@
 .main-container{
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
     background-image: url('../assets/img/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.png');
     background-repeat: no-repeat;
-    height:938px;
-    max-width:100%;
     overflow: hidden;
     background-size: cover;
-    background-position: left;
+    background-position: bottom left;
   
     @media (max-width: 991.98px) { 
-        height:723px; 
      }
     @media (max-width: 767.98px) {
         font-size: 2rem;
-        height:700px;
      }
      @media (max-width: 575.98px) {
         font-size: 1.2rem;
-        margin:2px auto;
-        height:600px;
+      
      }
   
 }
 .answerContainer{
     margin:50px auto;
     height: 90px;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     color: $color-primary;
 
-    @media (max-width: 767.98px) {
+    @media (max-width:767.98px) {
         font-size: 2rem;
      }
      @media (max-width: 575.98px) {
         font-size: 1.2rem;
-        margin:2px auto;
+        margin:60px auto;
+       
      }
 }
 
 .message {
     color: $color-back;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     height: 105px;
     width: 400px;
-    margin: 50px auto;
+    margin: 10px auto;
     @media (max-width: 767.98px) {
-        font-size: 2rem;
+        font-size: 1.5rem;
         width: 300px;
      }
      @media (max-width: 575.98px) {
