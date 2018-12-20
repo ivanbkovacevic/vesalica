@@ -221,18 +221,14 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
 ////////////////////////////////////////////////////////////////////////////////////////////
   render() {
-    let {status,correctLettArr}=this.state;
+    let {correctLettArr}=this.state;
    let correct=null;
-   let correctUnder=null;
    let abc=null;
    
     correct=correctLettArr.map((l,i)=>{
       return <span className='crtice'>{l}</span>
     })
 
-    correctUnder=correctLettArr.map((l,i)=>{
-      return <span className='under'>{l===" " ? " " : "_"}</span>
-    })
 
     abc=(
       this.state.abeceda.map((slo,i)=>{
@@ -245,6 +241,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
 
     return (
         <div className="main-container">
+          <div className='sub-container'>
             {/* <Intro remove={this.state.remove} 
               started={this.state.gameStarted} /> */}
             <div className="row">
@@ -267,8 +264,6 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
              missed={this.state.missed}
              message={this.state.message}
              bingo={this.state.bingo}/> 
-             
-           
            </div>
            </div>
            <div className="row">
@@ -276,7 +271,7 @@ GuessingLetter=(s,i)=>{ // igrac pogadja rec...
            <div className="container-crtice"><span className="letters-zagonetka">{correct}</span></div>
            </div>
            </div>
-        
+        </div>
       </div>      
     );
   }

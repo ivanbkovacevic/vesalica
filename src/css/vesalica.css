@@ -78,12 +78,14 @@ body {
     .slova {
       font-size: 1.4rem;
       width: 40px;
-      height: 40px; } }
+      height: 40px;
+      padding: 1px; } }
   @media (max-width: 575.98px) {
     .slova {
-      font-size: 1rem;
+      font-size: 1.1rem;
       width: 30px;
-      height: 30px; } }
+      height: 30px;
+      padding: 0px; } }
   .slova:hover {
     background-color: #ada3a3; }
 
@@ -139,10 +141,13 @@ body {
   @media (max-width: 575.98px) {
     .main-container {
       font-size: 1.2rem; } }
+  .main-container .sub-container {
+    height: 83%;
+    width: 100%; }
 
 .answerContainer {
   margin: 50px auto;
-  height: 90px;
+  height: 50px;
   font-size: 2rem;
   text-align: center;
   color: #f2f2f2; }
@@ -152,7 +157,7 @@ body {
   @media (max-width: 575.98px) {
     .answerContainer {
       font-size: 1.2rem;
-      margin: 60px auto; } }
+      margin: 30px auto; } }
 
 .message {
   color: #f2f2f2;
@@ -160,7 +165,8 @@ body {
   text-align: center;
   height: 105px;
   width: 400px;
-  margin: 10px auto; }
+  margin: 10px auto;
+  letter-spacing: 1.3rem; }
   @media (max-width: 767.98px) {
     .message {
       font-size: 1.5rem;
@@ -174,10 +180,18 @@ body {
     display: inline-block;
     margin-right: 10px;
     font-size: 5rem; }
+    @media (max-width: 575.98px) {
+      .message-icon {
+        font-size: 2.5rem; } }
 
 .blink {
   height: 50px;
   margin-bottom: 30px; }
+  @media (max-width: 575.98px) {
+    .blink {
+      font-size: 1rem;
+      height: 40px;
+      margin-bottom: 15px; } }
 
 .none {
   display: none; }
@@ -197,23 +211,23 @@ body {
 
 .crtice {
   display: inline-block;
-  width: 10%; }
+  width: 9%;
+  font-size: 4rem; }
   @media (max-width: 767.98px) {
     .crtice {
-      font-size: 2rem;
-      letter-spacing: 0.4rem; } }
+      width: 8%;
+      font-size: 3rem;
+      letter-spacing: 0.2rem; } }
   @media (max-width: 575.98px) {
     .crtice {
-      font-size: 1rem;
+      width: 7%;
+      font-size: 2rem;
       letter-spacing: 0.2rem; } }
 
-.letters {
+.letters-zagonetka {
   color: #f2f2f2;
-  font-size: 1.3rem; }
-  .letters-zagonetka {
-    color: #f2f2f2;
-    font-size: 3rem;
-    letter-spacing: 1rem; }
+  font-size: 3rem;
+  letter-spacing: 0.2rem; }
 
 .intro-container {
   position: absolute;
@@ -271,6 +285,6 @@ body {
         margin-right: 10px; } }
     @media (max-width: 575.98px) {
       .canvas-container {
-        height: 300px;
-        width: 200px;
+        height: 235px;
+        width: 165px;
         margin-right: 10px; } }

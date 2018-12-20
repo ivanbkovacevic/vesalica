@@ -3,7 +3,7 @@ export  function  Wood(ctx,WVx,WVy,WVbx,WVby,
     Rx,Ry){
     let wo=null;
    return  wo ={
-       0:  ctx.lineWidth = 40,
+       0:  ctx.lineWidth = 30,
    1:ctx.beginPath(),
    2:ctx.moveTo(0,600),// wood
    3:ctx.quadraticCurveTo(WVbx,WVby,WVx,WVy),
