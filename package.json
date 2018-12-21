@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://ivanbkovacevic.github.io/vesalica",
   "dependencies": {
+    "auth0-web": "^1.7.0",
     "axios": "^0.18.0",
     "firebase": "^5.5.4",
     "gh-pages": "^2.0.1",
