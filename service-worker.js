@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/vesalica/precache-manifest.80eb9568798aef145418cca07fd18e41.js"
+  "/vesalica/precache-manifest.c75adf1290dd1f6fe8afb4936be6c9aa.js"
 );
 
 workbox.clientsClaim();
