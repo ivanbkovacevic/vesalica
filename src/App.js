@@ -61,7 +61,7 @@ class App extends Component {
     });
 
     let { zagRec, worldCityes, zagRecCountry } = this.state;
-    axios.get('https://restcountries.eu/rest/v2/region/europe')
+    axios.get('https://restcountries.eu/rest/v2/region/europe')//taking the names of capital cityes
       .then((response) => {
         for (let i in response.data) {
           let zagonetka = {};
@@ -79,7 +79,8 @@ class App extends Component {
 
   }
 
-  generateWord = () => { // kreira rec...i kreira crtice za slova i pravi nekoliko arraya
+  generateWord = () => { // this part creates mistery word and also it creates dashes for every letter
+                         // and also it makes couple of arrayes
     let { zagRec, zagRecLength, zagRecArr, correctLettArr, notMatch, zagRecArrChecking,
       gameStarted, btnMsg, abeceda, hide, remove, worldCityes, zagRecCountry } = this.state;
 
@@ -91,27 +92,28 @@ class App extends Component {
       let worldCityesLength = worldCityes.length;
 
       let zagIndex = Math.floor(Math.random() * worldCityesLength) + 1;
-      zagRec = worldCityes[zagIndex].capital; //nasumično uzimamo gradove iz objekta
-      zagRecCountry = worldCityes[zagIndex].country; //nasumično uzimamo gradove iz objekta
+      zagRec = worldCityes[zagIndex].capital; //randomly taking word from object
+      zagRecCountry = worldCityes[zagIndex].country; //taking the country name
       zagRecCountry = zagRecCountry.toUpperCase();
 
-      zagRec = removeAccents(zagRec);// sredjivanje specijalnih karaktera
+      zagRec = removeAccents(zagRec); // dealing with special characters
 
       this.setState({ zagRec, worldCityes, zagRecCountry });
 
-      zagRecLength = zagRec.length;//dužina nam treba da bismo proveravali da li je doslo do pobede ili poraza kao i za crtanje
+      zagRecLength = zagRec.length;//we need length of word so we can check is it guessed or is game over
+         
       zagRec = zagRec.toUpperCase();
-      zagRecArr = Array.from(zagRec);// pravljenje array od reci jer treba manipulisati sa tim array
-      zagRecArrChecking = [...zagRecArr];//array koji sluzi za proveru da li su sva slova pogodjena tj.  registruje da li su sva slova(i duplikati) upisani
+      zagRecArr = Array.from(zagRec);//making the array from word so we can manipulate with it
+      zagRecArrChecking = [...zagRecArr];//this is array which we use to check are all letters guessed
 
-      for (let c in zagRecArr) { // loop koji proverava da li ima razmaka tj da li ima dve ili vise reci i izbacuje taj elemenat i smanjuje duzinu    
-        if (zagRecArrChecking[c] === ' ') {// ovo mora da bi broj pogodatak za pobedu odgovarao broju slova u reci
-          zagRecArrChecking.splice(c, 1);
+      for (let c in zagRecArr) { // for loop which checks are some spaces in mistery word. also it pops that out from arrays    
+        if (zagRecArrChecking[c] === ' ') {// we need this otherwaythe number ov guessesse will be different from number of letters
+            zagRecArrChecking.splice(c, 1);
           zagRecLength--;
           this.setState({ zagRecArrChecking })
         }
 
-        if (zagRecArr[c] === ' ') {// ovo mora jer inace ubacio bi ubacio crticu i na prazno mesto
+        if (zagRecArr[c] === ' ') {//we need this so that we do not have dash on place where is empty space character
           correctLettArr.push(' ');
         } else {
           correctLettArr.push('_');
@@ -152,31 +154,31 @@ class App extends Component {
 
   }
 
-  GuessingLetter = (s, i) => { // igrac pogadja rec...
+  GuessingLetter = (s, i) => { // player are guessing the word...
     let { letterG, zagRecArr, zagRecArrChecking, zagRec, message, correctLettArr, bingo,
       zagRecLength, showWord, notMatch, missed, abeceda, hide } = this.state;
     abeceda = abeceda.slice();
     zagRecArr = zagRecArr.slice();
     zagRecArrChecking = zagRecArrChecking.slice();
-    correctLettArr = correctLettArr.slice(); //array koji hvata tacna slova  tj pogotke
+    correctLettArr = correctLettArr.slice(); //array which catches the correct guesses
     hide = '';
 
-    letterG = s;// hvatanje slova kliknutog slova
+    letterG = s;// guessed letter
 
     letterG = letterG.toUpperCase();
     abeceda[i].clicked = true;
     this.setState({ abeceda, hide });
 
-    for (let w in zagRecArr) { //prolazenje kroz arr reci i cekiranje da li se neki elemenat arr poklapa sa guessovanim slovom
+    for (let w in zagRecArr) { //going trough array and checking are there some correct guesses
       if (zagRecArr[w] === letterG) {
-        correctLettArr[w] = letterG;//correctLettArr sluzi za ispisivanje pogodjenih slova....mozda je moglo da se nazove i displayedLettArr
+        correctLettArr[w] = letterG;//correctLettArr is used for displaying correct guessed letters 
         message = 'Correct';
         this.setState({ correctLettArr, message });
       }
     }
 
-    for (let ww in zagRecArrChecking) { //cekiranje pogodatak i dobijanje da li pobeda ili ne
-      let double = Number(ww) + 1;
+    for (let ww in zagRecArrChecking) { //here we check are is correct guess and is it win or not
+      let double = Number(ww) + 1;// for the word wich have same letters next to each others
 
       if (zagRecArrChecking[ww] === letterG && zagRecArrChecking[double] === letterG) {
         zagRecArrChecking.splice(ww, 2);
@@ -185,20 +187,20 @@ class App extends Component {
       }
 
       if (zagRecArrChecking[ww] === letterG) {
-        zagRecArrChecking.splice(ww, 1); // zagRecArrChecking sluzi za proveru da li je pronadjena zagonetna rec...taj array se smanjuje...izbacuju se pogodjena slova i dodaje se po poen u bingo 
+        zagRecArrChecking.splice(ww, 1);  
         bingo++;
         this.setState({ zagRecArrChecking, bingo });
       }
     }
 
-    notMatch = zagRec.includes(letterG);//primenjivanje gornje funkcije na svaki elemenat u nizu
-    if (!notMatch) {//ako je true dodavanje poena u missed  i ispisavanje poruke
+    notMatch = zagRec.includes(letterG);//checking is guesset letter inside of mistery word
+    if (!notMatch) {//if is true adding adequate points and writing adecuate message
       message = 'No such letter';
       missed++
       this.setState({ message, missed })
     }
 
-    if (bingo === zagRecLength) { //pronaslo se tacno resenje 
+    if (bingo === zagRecLength) { //the mistery word is find
       message = 'Bravo! You fiNd correct word';
       hide = 'none';
       for (let i in abeceda) {
@@ -207,7 +209,7 @@ class App extends Component {
       this.setState({ message, hide, abeceda })
     }
 
-    if (missed === 6) { //missed se dobija kada slovo nije matchovano
+    if (missed === 6) { //every time when is missed letter we give one point to the missed variable
       message = 'You lost the game';
       hide = 'none';
       showWord = true;
