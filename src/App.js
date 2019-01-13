@@ -10,16 +10,9 @@ import Message from './components/Message';
 import axios from 'axios';
 import removeAccents from 'remove-accents';
 import LettersToBeGuessed from './components/LettersToBeGuessed';
+import Facebook from './components/Facebook';
 
-import * as Auth0 from 'auth0-web';
 
-Auth0.configure({
-  domain: 'vesalica.eu.auth0.com',
-  clientID: 'WypSAff7gwRYDO9PKGglfdiHm9komA4y',
-  redirectUri: 'http://localhost:3000/',
-  responseType: 'token id_token',
-  scope: 'openid profile manage:points',
-});
 
 
 class App extends Component {
@@ -55,10 +48,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    Auth0.handleAuthCallback();
-    Auth0.subscribe((auth) => {
-      console.log(auth);
-    });
+   
 
     let { zagRec, worldCityes, zagRecCountry } = this.state;
     axios.get('https://restcountries.eu/rest/v2/region/europe')//taking the names of capital cityes
@@ -253,6 +243,7 @@ class App extends Component {
     return (
       <div className="main-container">
         <div className='sub-container'>
+        <Facebook/>
           <Intro remove={this.state.remove}
             started={this.state.gameStarted} />
           <div className="row">

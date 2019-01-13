@@ -112,8 +112,8 @@ body {
 .container-btnLetters {
   min-width: 90%;
   min-height: 120px;
-  padding: 20px 30px;
-  margin: 10px auto;
+  padding: 2px 30px;
+  margin: 2px auto;
   text-align: center; }
   @media (max-width: 575.98px) {
     .container-btnLetters {
@@ -288,3 +288,12 @@ body {
         height: 235px;
         width: 165px;
         margin-right: 10px; } }
+
+.fblogin {
+  display: block;
+  font-size: 1rem;
+  height: 50px;
+  color: white;
+  text-transform: uppercase; }
+  .fblogin span {
+    margin-left: 10px; }
