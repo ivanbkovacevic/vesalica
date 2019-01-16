@@ -2,7 +2,7 @@
 //"homepage":"https://ivanbkovacevic.github.io/vesalica", -ovo u jsonu
 //"deploy":"npm run build&&gh-pages -d build",
 //npm run deploy
-// "deploy": "npm run build&&gh-pages -d build",
+
 import React, { Component } from 'react';
 import './css/vesalica.css';
 import Intro from './components/Intro';
