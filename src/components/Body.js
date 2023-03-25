@@ -97,7 +97,6 @@ export function HeadTest(ctx, HeadRight, HeadLeft) {
 }
 
 export function Clear(ctx) {
-  console.log('clerrrrrrrrrrrrrrrrrrr')
   return ctx.clearRect(0, 0, 400, 600);
 }
 
