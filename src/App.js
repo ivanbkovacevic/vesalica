@@ -10,9 +10,6 @@ import Message from './components/Message';
 import axios from 'axios';
 import removeAccents from 'remove-accents';
 import LettersToBeGuessed from './components/LettersToBeGuessed';
-import Facebook from './components/Facebook';
-
-
 
 
 class App extends Component {
@@ -48,11 +45,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+   // https://restcountries.eu/rest/v2/region/europe
+   const headers = new Headers();
+   headers.append("X-CSCAPI-KEY", "WHRZNmR4QjI3b055QXZ5RGhtU08weW5pajlzZ2hHRWVBOTBOdlQzWg==");
    
-
+   const requestOptions = {
+      method: 'GET',
+      headers: headers,
+      redirect: 'follow'
+   };
     let { zagRec, worldCityes, zagRecCountry } = this.state;
-    axios.get('https://restcountries.eu/rest/v2/region/europe')//taking the names of capital cityes
+
+    axios.get('https://restcountries.com/v3.1/region/europe')//taking the names of capital cityes
       .then((response) => {
+        console.log(response)
         for (let i in response.data) {
           let zagonetka = {};
           if (response.data[i].capital !== '') {
@@ -80,11 +86,10 @@ class App extends Component {
       hide = 'none';
       remove = 'none';
       let worldCityesLength = worldCityes.length;
-
       let zagIndex = Math.floor(Math.random() * worldCityesLength) + 1;
-      zagRec = worldCityes[zagIndex].capital; //randomly taking word from object
+      zagRec = worldCityes[zagIndex].capital[0]; //randomly taking word from object
       zagRecCountry = worldCityes[zagIndex].country; //taking the country name
-      zagRecCountry = zagRecCountry.toUpperCase();
+      zagRecCountry = zagRecCountry.common.toUpperCase();
 
       zagRec = removeAccents(zagRec); // dealing with special characters
 
@@ -243,7 +248,6 @@ class App extends Component {
     return (
       <div className="main-container">
         <div className='sub-container'>
-        <Facebook/>
           <Intro remove={this.state.remove}
             started={this.state.gameStarted} />
           <div className="row">
