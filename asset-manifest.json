@@ -1,16 +1,16 @@
 {
-  "main.css": "/vesalica/static/css/main.8989f5a1.chunk.css",
-  "main.js": "/vesalica/static/js/main.d524199c.chunk.js",
-  "main.js.map": "/vesalica/static/js/main.d524199c.chunk.js.map",
-  "static/js/1.f601f65a.chunk.js": "/vesalica/static/js/1.f601f65a.chunk.js",
-  "static/js/1.f601f65a.chunk.js.map": "/vesalica/static/js/1.f601f65a.chunk.js.map",
+  "main.css": "/vesalica/static/css/main.bb66b7dc.chunk.css",
+  "main.js": "/vesalica/static/js/main.8da9d5fc.chunk.js",
+  "main.js.map": "/vesalica/static/js/main.8da9d5fc.chunk.js.map",
+  "static/js/1.d53229c2.chunk.js": "/vesalica/static/js/1.d53229c2.chunk.js",
+  "static/js/1.d53229c2.chunk.js.map": "/vesalica/static/js/1.d53229c2.chunk.js.map",
   "runtime~main.js": "/vesalica/static/js/runtime~main.61eb54e5.js",
   "runtime~main.js.map": "/vesalica/static/js/runtime~main.61eb54e5.js.map",
   "static/media/vesalica.css": "/vesalica/static/media/videoblocks-school-board-chalk-text_hchp-cjtl_thumbnail-full01.13ea74c4.png",
   "static/media/chalk1.png": "/vesalica/static/media/chalk1.da363392.png",
   "static/media/ChalkCrop.mp3": "/vesalica/static/media/ChalkCrop.5d72e25d.mp3",
-  "static/css/main.8989f5a1.chunk.css.map": "/vesalica/static/css/main.8989f5a1.chunk.css.map",
+  "static/css/main.bb66b7dc.chunk.css.map": "/vesalica/static/css/main.bb66b7dc.chunk.css.map",
   "index.html": "/vesalica/index.html",
-  "precache-manifest.c75adf1290dd1f6fe8afb4936be6c9aa.js": "/vesalica/precache-manifest.c75adf1290dd1f6fe8afb4936be6c9aa.js",
+  "precache-manifest.45216cf1d62596f9b19193ce8b889dfb.js": "/vesalica/precache-manifest.45216cf1d62596f9b19193ce8b889dfb.js",
   "service-worker.js": "/vesalica/service-worker.js"
 }
